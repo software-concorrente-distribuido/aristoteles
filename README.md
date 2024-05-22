@@ -1,6 +1,6 @@
 # Time Aristoteles
 
-<img src="https://imgur.com/a/OT2eRdi" alt="Aristoteles" width="200"/>
+<img src="https://i.imgur.com/OgFhmhD.jpg" alt="Aristoteles" width="200"/>
 
 ## Membros:
 - Leonardo Ribeiro
