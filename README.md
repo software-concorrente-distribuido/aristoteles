@@ -5,6 +5,7 @@
 ## Membros:
 - Leonardo Ribeiro
 - Gabriel Castro
+- Murilo Freua
 - Vitor Ribeiro
 
 ## Apresentações 
