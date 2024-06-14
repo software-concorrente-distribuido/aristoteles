@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Votação</title>
+    <link rel="stylesheet" href="styleCriarVotacao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="menu-bar">
+            <div class="menu">
+                <i class="fas fa-bars"></i>
+                <div class="menu-content">
+                    <a href="../Votacoes/Votacoes.html">Visualizar votações</a>
+                    <a href="../CriarVotacao/CriarVotacao.html">Iniciar Votação</a>
+                </div>
+            </div>
+            <div class="admin-badge">ADM</div>
+            <div class="user-info">
+                <span>Nome: João da Silva</span>
+                <a href="../Login/index.html" class="logout"><i class="fas fa-sign-out-alt"></i> SAIR</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Nova Votação</h2>
+            <form>
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="data-final">Data final</label>
+                    <div class="datetime-container">
+                        <input type="date" id="data-final" name="data-final">
+                        <input type="time" id="horario-final" name="horario-final">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Adicionar votantes</label>
+                    <div class="votantes-list">
+                        <input type="text" id="novo-participante" name="novo-participante" placeholder="Digite o e-mail">
+                        <button type="button" class="add-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Opções</label>
+                    <div class="opcoes-list">
+                        <label class="radio-container">Opção I
+                            <input type="radio" name="opcao" value="opcao1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">Opção II
+                            <input type="radio" name="opcao" value="opcao2">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">Opção III
+                            <input type="radio" name="opcao" value="opcao3">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>                                             
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancelar</button>
+                    <button type="submit" class="save-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="CriarVotacao.js"></script>
+</body>
+</html>

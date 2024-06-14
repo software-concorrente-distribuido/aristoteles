@@ -1,0 +1,151 @@
+:root {
+    --cor-fundo-body: #FFCBCB;
+    --cor-fundo-container: #FFFFFF;
+    --cor-texto-titulo: #102C57;
+    --cor-texto-label: #12648d;
+    --cor-borda-input: #CCC;
+    --cor-borda-input-focus: #1679AB;
+    --cor-sombra-box: rgba(0, 0, 0, 0.1);
+    --cor-botao-fundo: #1679AB;
+    --cor-botao-texto: white;
+    --cor-botao-hover: #125682;
+    --cor-link: #1679AB;
+}
+
+@keyframes blockchain {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    background-color: var(--cor-fundo-body);
+
+    background-color: var(--cor-fundo-body);
+    background-image: 
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+    background-size: 100px 100px;
+    animation: blockchain 20s infinite linear;
+    overflow: hidden;
+}
+
+.login-container, .cadastro-container {
+    background-color: var(--cor-fundo-container);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px var(--cor-sombra-box);
+    text-align: center;
+    width: 300px;
+    max-width: 90%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-container:hover, .cadastro-container:hover {
+    transform: scale(1.05);
+}
+
+.login-container h2, .cadastro-container h2 {
+    color: var(--cor-texto-titulo);
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    margin-right: 10px;
+    color: var(--cor-texto-label);
+}
+
+.input-container i {
+    color: var(--cor-texto-label);
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"],
+.input-container input[type="password"] {
+    flex: 1;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 5px;
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-container input[type="text"]:focus,
+.input-container input[type="email"]:focus,
+.input-container input[type="password"]:focus {
+    border-color: var(--cor-borda-input-focus);
+    outline: none;
+    box-shadow: 0 0 5px rgba(22, 121, 171, 0.5);
+}
+
+.login-container button, .cadastro-container button {
+    background-color: var(--cor-botao-fundo);
+    color: var(--cor-botao-texto);
+    border: none;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-container button:hover, .cadastro-container button:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+.login-container p, .cadastro-container p {
+    margin-top: 15px;
+    font-size: 0.85em;
+}
+
+.login-container a, .cadastro-container a {
+    color: var(--cor-link);
+    text-decoration: none;
+}
+
+.login-container a:hover, .cadastro-container a:hover {
+    text-decoration: underline;
+}
+
+/* Media query para telas menores que 600px (exemplo de dispositivos móveis) */
+@media (max-width: 600px) {
+    .login-container, .cadastro-container {
+        padding: 20px; /* Reduz o padding para economizar espaço */
+    }
+
+    .input-container {
+        flex-direction: column; /* Altera para layout de coluna em telas menores */
+        margin-bottom: 15px; /* Espaçamento menor entre os campos */
+    }
+
+    .input-container label {
+        margin-bottom: 5px; /* Espaçamento menor entre label e input */
+    }
+
+    .input-container input[type="text"],
+    .input-container input[type="email"],
+    .input-container input[type="password"] {
+        margin-top: 5px; /* Espaçamento entre inputs */
+    }
+
+    .login-container button, .cadastro-container button {
+        padding: 10px 20px; /* Reduz o padding do botão */
+    }
+}

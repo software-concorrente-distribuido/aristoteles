@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="input-container">
+                <label for="email"><i class="fas fa-envelope"></i></label>
+                <input type="text" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-container">
+                <label for="password"><i class="fas fa-lock"></i></label>
+                <input type="password" id="password" placeholder="Senha" required>
+            </div>
+            <button type="submit" id="login-btn">Entrar</button>
+        </form>
+        <p>Não possui conta? <a href="../Cadastro/Cadastro.html" id="register-link">Registre-se aqui</a></p>
+    </div>
+
+    <script src="Login.js"></script>
+</body>
+</html>

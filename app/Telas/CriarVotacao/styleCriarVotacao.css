@@ -1,0 +1,327 @@
+:root {
+    --cor-fundo-body: #F8F8F8;
+    --cor-fundo-menu: #2C3E50;
+    --cor-texto-menu: #FFFFFF;
+    --cor-texto-titulo: #102C57;
+    --cor-texto: #333;
+    --cor-botao: #1679AB;
+    --cor-botao-hover: #125682;
+    --cor-card-fundo: #2C3E50;
+    --cor-card-texto: #FFFFFF;
+    --cor-status-realizado: #2ECC71;
+    --cor-status-nao-votado: #E74C3C;
+    --cor-borda-card: #2C3E50;
+}
+
+/* Add the animation styles */
+@keyframes slow-background-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #FFCBCB;
+    background-image: 
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+    background-size: 100px 100px; /* Adjust as needed */
+    animation: slow-background-animation 20s infinite linear;
+    overflow: hidden;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--cor-fundo-menu);
+    color: var(--cor-texto-menu);
+}
+
+.menu {
+    position: relative;
+}
+
+.menu i {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    width: 150px;
+    top: 23px;
+    left: 0;
+    background-color: var(--cor-fundo-menu);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 0; /* Adicionado para iniciar com altura zero */
+    overflow: hidden; /* Para esconder o conteúdo quando fechado */
+    transition: max-height 0.3s ease; /* Transição suave */
+}
+
+.menu-content a {
+    display: block;
+    padding: 5px;
+    color: var(--cor-texto-menu);
+    text-decoration: none;
+}
+
+.menu-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu:hover .menu-content {
+    display: block;
+    max-height: 200px; /* Altura máxima quando o menu está aberto */
+}
+
+.admin-badge {
+    background-color: #E74C3C;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.logout {
+    color: var(--cor-texto-menu);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logout i {
+    margin-right: 5px;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    color: var(--cor-texto-titulo);
+    text-align: center;
+}
+
+form {
+    background-color: #E8ECF3;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px 0px #aaa;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garantir que padding e border estão incluídos na largura total */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--cor-texto-titulo);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garantir que padding e border estão incluídos na largura total */
+}
+
+.votantes-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.votantes-list input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-sizing: border-box; /* Garantir que padding e border estão incluídos na largura total */
+}
+
+.votantes-list span {
+    margin-right: 10px;
+}
+
+.add-btn,
+.edit-btn,
+.delete-btn {
+    background-color: var(--cor-botao);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--cor-texto-menu);
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.add-btn {
+    background-color: #2ECC71;
+}
+
+.edit-btn {
+    background-color: #FFC107;
+}
+
+.delete-btn {
+    background-color: #E74C3C;
+}
+
+.opcoes-list label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: var(--cor-texto-titulo);
+}
+
+.opcoes-list input {
+    margin-right: 10px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel-btn,
+.save-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+}
+
+.save-btn {
+    background-color: var(--cor-botao);
+}
+
+.save-btn:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+
+/* Estilos para as opções */
+.opcoes-list {
+    background-color: #f2f2f2; /* Cor de fundo para as opções */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    line-height: 1.5;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 16px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.radio-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.radio-container .checkmark:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+/* Animação ao clicar */
+.radio-container input:checked ~ .checkmark {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { background-color: #2196F3; }
+    50% { background-color: rgb(78, 199, 78); }
+    100% { background-color: #2196F3; }
+}
+
+.datetime-container {
+    display: flex;
+    align-items: center;
+}
+
+.datetime-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
