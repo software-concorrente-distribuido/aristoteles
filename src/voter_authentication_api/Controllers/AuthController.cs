@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Nethereum.Signer;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
 using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Models.DTOs;
 
 namespace VoterAuthenticationAPI.Controllers;
 [Route("api/[controller]")]
@@ -20,7 +22,10 @@ public class AuthController : ControllerBase
     {
         try
         {
-            var dbuser = await _dataContext.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Email == email);
+            var dbuser = await _dataContext.Users
+                .Include(x => x.Role)
+                .Include(x => x.Wallet)
+                .FirstOrDefaultAsync(x => x.Email == email);
 
             if (dbuser == null)
             {
@@ -42,37 +47,38 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("sign-up")]
-    public async Task<ActionResult<User>> SignUp(User user)
+    public async Task<ActionResult<User>> SignUp(UserDTO userDTO)
     {
-        var transaction = await _dataContext.Database.BeginTransactionAsync();
+        using var transaction = await _dataContext.Database.BeginTransactionAsync();
+
         try
         {
-            var dbuser = await _dataContext.Users
-                .Include(x => x.Role)
-                .FirstOrDefaultAsync(x => x.Email == user.Email);
+            await VerificaSeUsuarioExiste(userDTO);
 
-            if (dbuser != null) return Conflict();
+            var password = userDTO.Password != null ? Utils.Encrypt(userDTO.Password) : throw new ArgumentException("Senha não pode ser nula");
 
-            Tenant tenant = new Tenant()
+            string? token = null;
+
+            var role = await _dataContext.Roles.FindAsync(2);
+            role = role ?? throw new ArgumentException("Role não pode ser nula");
+
+            Wallet wallet = WalletService.GenerateWallet();
+
+            var user = new User()
             {
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                Name = userDTO.Name,
+                Email = userDTO.Email,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                Password = password,
+                Token = token,
+                Role = role,
+                Wallet = wallet
             };
-            user.Tenant = tenant;
-            user.CreatedAt = DateTime.Now;
-            user.UpdatedAt = DateTime.Now;
 
-            if (!string.IsNullOrEmpty(user.Password))
-                user.Password = Utils.Encrypt(user.Password);
             await _dataContext.Users.AddAsync(user);
             await _dataContext.SaveChangesAsync();
-
-            user.Token = Utils.GenerateJWTToken(user.Id);
-
-            user.Role = await _dataContext.Roles.FirstOrDefaultAsync(x => x.Id == user.RoleId);
-
             await Utils.SendWelcomeEmail(user.Name, user.Email);
-
             await transaction.CommitAsync();
 
             return Created("", user);
@@ -80,30 +86,19 @@ public class AuthController : ControllerBase
         catch (Exception ex)
         {
             await transaction.RollbackAsync();
-            return BadRequest(ex);
+            return BadRequest(ex.Message);
         }
     }
 
-    [HttpPost("send-recovery-link")]
-    public async Task<IActionResult> SendRecoveryLink(string email)
+    private async Task VerificaSeUsuarioExiste(UserDTO userDTO)
     {
-        try
+        var dbUser = await _dataContext.Users
+                        .Include(x => x.Role)
+                        .FirstOrDefaultAsync(x => x.Email == userDTO.Email);
+
+        if (dbUser != null)
         {
-            var dbuser = await _dataContext.Users
-                .Include(x => x.Role)
-                .FirstOrDefaultAsync(x => x.Email == email);
-            if (dbuser != null)
-            {
-                string recoveryToken = Utils.GenerateJWTTokenByEmail(dbuser.Email);
-                string recoveryLink = $"{dbuser.AppOriginUrl}/auth/reset-password/{recoveryToken}";
-                bool isSent = await Utils.SendRecoveryLinkEmail(recoveryLink, dbuser.Name, dbuser.Email);
-                if (isSent) return Created("", new { recoveryToken, dbuser.Email });
-            }
-            return NotFound();
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex);
+            throw new ArgumentException("Usuário já existe");
         }
     }
 }

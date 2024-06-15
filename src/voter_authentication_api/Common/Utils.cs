@@ -76,21 +76,35 @@ namespace VoterAuthenticationAPI.Common
             emailService._body.Append("Atenciosamente, <br /><br />");
             emailService._body.Append("Aristóteles");
             emailService._body.Append("</html>");
-            return await emailService.SendEmailAsync(fullname, email, $"Bem-vindo, {fullname}");
+            return await emailService.SendEmailAsync(email, $"Bem-vindo, {fullname}");
         }
 
-        public static async Task<bool> SendRecoveryLinkEmail(string link, string fullname, string userEmal)
+        public static async Task<bool> SendSignUpLinkEmail(string link, string userEmal)
         {
             using EmailService emailService = new EmailService();
             emailService._body.Append("<html>");
-            emailService._body.Append($"Olá, {fullname}! <br /><br />");
-            emailService._body.Append("Por favor, selecione o link abaixo para cadastrar sua nova senha. <br /><br />");
+            emailService._body.Append($"Olá! <br /><br />");
+            emailService._body.Append("Por favor, selecione o link abaixo para se cadastrar na plataforma e votar. <br /><br />");
             emailService._body.Append("<a href='" + link + "' target='_blank'>Clique aqui</a> <br /><br />");
             emailService._body.Append("Esse link estará disponível por 24h <br /><br />");
             emailService._body.Append("Atenciosamente, <br /><br />");
             emailService._body.Append("Aristóteles");
             emailService._body.Append("</html>");
-            return await emailService.SendEmailAsync(fullname, userEmal, $"Recuperação de senha");
+            return await emailService.SendEmailAsync(userEmal, $"Convite para votação");
+        }
+
+        public static async Task<bool> SendLoginLinkEmail(string link, string fullname, string userEmal)
+        {
+            using EmailService emailService = new EmailService();
+            emailService._body.Append("<html>");
+            emailService._body.Append($"Olá, {fullname}! <br /><br />");
+            emailService._body.Append("Por favor, selecione o link abaixo para votar. <br /><br />");
+            emailService._body.Append("<a href='" + link + "' target='_blank'>Clique aqui</a> <br /><br />");
+            emailService._body.Append("Esse link estará disponível por 24h <br /><br />");
+            emailService._body.Append("Atenciosamente, <br /><br />");
+            emailService._body.Append("Aristóteles");
+            emailService._body.Append("</html>");
+            return await emailService.SendEmailAsync(userEmal, $"Convite para cadastro e votação");
         }
     }
 }

@@ -15,11 +15,10 @@ namespace VoterAuthenticationAPI.Models
         public DateTime? UpdatedAt { get; set; }
         public int RoleId { get; set; }
         public required Role Role { get; set; }
+        public int WalletId { get; set; }
+        public required Wallet Wallet { get; set; }
+
         [NotMapped]
-        public required string Token { get; set; }
-        [NotMapped]
-        public required string AppOriginUrl { get; set; }
-        public int TenantId { get; set; }
-        public required Tenant Tenant { get; set;}
+        public string? Token { get; set; }
     }
 }

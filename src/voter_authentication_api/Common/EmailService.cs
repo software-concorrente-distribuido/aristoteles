@@ -21,7 +21,7 @@ namespace VoterAuthenticationAPI.Common
             _client.Dispose();
         }
 
-        public async Task<bool> SendEmailAsync(string fullname, string receiverEmail, string subject)
+        public async Task<bool> SendEmailAsync(string receiverEmail, string subject)
         {
             try
             {

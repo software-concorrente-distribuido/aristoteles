@@ -18,6 +18,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.5",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.6",
+          "Nethereum.Signer": "4.20.0",
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -722,6 +724,91 @@
           }
         }
       },
+      "MySqlConnector/2.3.5": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/MySqlConnector.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.3.5.0"
+          }
+        }
+      },
+      "NBitcoin.Secp256k1/3.1.1": {
+        "runtime": {
+          "lib/net6.0/NBitcoin.Secp256k1.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "Nethereum.Hex/4.20.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/Nethereum.Hex.dll": {
+            "assemblyVersion": "4.20.0.0",
+            "fileVersion": "4.20.0.0"
+          }
+        }
+      },
+      "Nethereum.Model/4.20.0": {
+        "dependencies": {
+          "Nethereum.RLP": "4.20.0",
+          "Nethereum.Util": "4.20.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/Nethereum.Model.dll": {
+            "assemblyVersion": "4.20.0.0",
+            "fileVersion": "4.20.0.0"
+          }
+        }
+      },
+      "Nethereum.RLP/4.20.0": {
+        "dependencies": {
+          "Nethereum.Hex": "4.20.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/Nethereum.RLP.dll": {
+            "assemblyVersion": "4.20.0.0",
+            "fileVersion": "4.20.0.0"
+          }
+        }
+      },
+      "Nethereum.Signer/4.20.0": {
+        "dependencies": {
+          "NBitcoin.Secp256k1": "3.1.1",
+          "Nethereum.Hex": "4.20.0",
+          "Nethereum.Model": "4.20.0",
+          "Nethereum.RLP": "4.20.0",
+          "Nethereum.Util": "4.20.0",
+          "Newtonsoft.Json": "13.0.3",
+          "Portable.BouncyCastle": "1.8.2"
+        },
+        "runtime": {
+          "lib/net8.0/Nethereum.Signer.dll": {
+            "assemblyVersion": "4.20.0.0",
+            "fileVersion": "4.20.0.0"
+          }
+        }
+      },
+      "Nethereum.Util/4.20.0": {
+        "dependencies": {
+          "Nethereum.Hex": "4.20.0",
+          "Nethereum.RLP": "4.20.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/Nethereum.Util.dll": {
+            "assemblyVersion": "4.20.0.0",
+            "fileVersion": "4.20.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -738,6 +825,26 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.2.22727"
+          }
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql/8.0.2": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.5",
+          "MySqlConnector": "2.3.5"
+        },
+        "runtime": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.2.0"
+          }
+        }
+      },
+      "Portable.BouncyCastle/1.8.2": {
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "assemblyVersion": "1.8.2.0",
+            "fileVersion": "1.8.2.223"
           }
         }
       },
@@ -1414,6 +1521,55 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "MySqlConnector/2.3.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AmEfUPkFl+Ev6jJ8Dhns3CYHBfD12RHzGYWuLt6DfG6/af6YvOMyPz74ZPPjBYQGRJkumD2Z48Kqm8s5DJuhLA==",
+      "path": "mysqlconnector/2.3.5",
+      "hashPath": "mysqlconnector.2.3.5.nupkg.sha512"
+    },
+    "NBitcoin.Secp256k1/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ekF91qDK2+TI9FFhXvjClfUOQ3DWxNhvjh8Eoqawk1KPk/hCURpc8xoyeprtAiIoM5wgPnWeFxQybVWhl2NsHA==",
+      "path": "nbitcoin.secp256k1/3.1.1",
+      "hashPath": "nbitcoin.secp256k1.3.1.1.nupkg.sha512"
+    },
+    "Nethereum.Hex/4.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-64PBxayb4hG2yLuBIWc5ZYAjOFmzmqpLVIp8rhFfXAsKnuJCuUHWmImC5+UZpSoQ1AqtgHz05oaq5UxHdMEZcw==",
+      "path": "nethereum.hex/4.20.0",
+      "hashPath": "nethereum.hex.4.20.0.nupkg.sha512"
+    },
+    "Nethereum.Model/4.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ahi0xt4iGwOvB1WRMR/0N8+W7GS0COxw9dpc/b8bStV8EyJzxR5BQYRLBeoKWOdwjKZq3xp9gHc4Pjsbh7cUUg==",
+      "path": "nethereum.model/4.20.0",
+      "hashPath": "nethereum.model.4.20.0.nupkg.sha512"
+    },
+    "Nethereum.RLP/4.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Gh3+ppe3qbP2l38gcrtcWPk2I3xdGXJqCxbxw9ni3LzhsW1JLRpB99+Uo95XW8H+lXbPrNef922t+yXooSBp0Q==",
+      "path": "nethereum.rlp/4.20.0",
+      "hashPath": "nethereum.rlp.4.20.0.nupkg.sha512"
+    },
+    "Nethereum.Signer/4.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KVtC3g93Usv0zZEU21upePOR/EftGL65hi5+ZjxdraxBEipR80Cg4GXzD3WByDjI3/bkTpppS0MfBAfIxmOP6w==",
+      "path": "nethereum.signer/4.20.0",
+      "hashPath": "nethereum.signer.4.20.0.nupkg.sha512"
+    },
+    "Nethereum.Util/4.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MVkmeOz4qHVOX+l4q/zCEUurEQFqAJ+mGUm7ZkCCtD4zHTDuAAp2Pg2RawAsGKLQDLSl0b9zQ9x8/KYepLrmHQ==",
+      "path": "nethereum.util/4.20.0",
+      "hashPath": "nethereum.util.4.20.0.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",
       "serviceable": true,
@@ -1427,6 +1583,20 @@
       "sha512": "sha512-QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
+    },
+    "Pomelo.EntityFrameworkCore.MySql/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XjnlcxVBLnEMbyEc5cZzgZeDyLvAniACZQ04W1slWN0f4rmfNzl98gEMvHnFH0fMDF06z9MmgGi/Sr7hJ+BVnw==",
+      "path": "pomelo.entityframeworkcore.mysql/8.0.2",
+      "hashPath": "pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512"
+    },
+    "Portable.BouncyCastle/1.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XpJVIhjPiO0o+DU36eeIzqnRilDmE8Z7Kfhm9V9o1yNqM3ikgleD94Z5W/LeEu3t63LaZl2CNJexaix+I6AUMg==",
+      "path": "portable.bouncycastle/1.8.2",
+      "hashPath": "portable.bouncycastle.1.8.2.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",
