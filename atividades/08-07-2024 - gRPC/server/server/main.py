@@ -9,7 +9,6 @@ url = "postgresql+psycopg2://admin:password@localhost:5432/app"
 engine = create_engine(url, isolation_level="AUTOCOMMIT")
 
 
-# Ensure the users table is created
 def create_users_table():
     with engine.begin() as conn:
         try:
