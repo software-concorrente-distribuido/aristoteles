@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/vitor/dev/votelib/src/dapp/contracts/Voting.sol": {
-      "lastModificationDate": 1718341369346,
+    "/home/vitor/dev/aristoteles/src/blockchain/src/dapp/contracts/Voting.sol": {
+      "lastModificationDate": 1720365925569,
       "contentHash": "f2af2a5ebb68fac477e892461df00d46",
       "sourceName": "contracts/Voting.sol",
       "solcConfig": {
