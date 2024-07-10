@@ -1,29 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\projetos\\voterauthenticationapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\projetos\\voterauthenticationapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E38332E2-0012-4286-A1E1-42EC7694625B}|..\\VoterSystemFront\\VoterSystemFront.esproj|c:\\users\\leona\\desktop\\projetos\\votersystemfront\\src\\app\\auth\\sign-up\\sign-up.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E38332E2-0012-4286-A1E1-42EC7694625B}|..\\VoterSystemFront\\VoterSystemFront.esproj|c:\\users\\leona\\desktop\\projetos\\votersystemfront\\src\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E38332E2-0012-4286-A1E1-42EC7694625B}|..\\VoterSystemFront\\VoterSystemFront.esproj|c:\\users\\leona\\desktop\\projetos\\votersystemfront\\src\\models\\user.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\projetos\\voterauthenticationapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -31,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -92,84 +70,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T16:57:16.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAmwCoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T17:14:34.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "auth.service.ts",
-              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Projetos\\VoterSystemFront\\src\\services\\auth.service.ts",
-              "RelativeDocumentMoniker": "..\\VoterSystemFront\\src\\services\\auth.service.ts",
-              "ToolTip": "C:\\Users\\leona\\Desktop\\Projetos\\VoterSystemFront\\src\\services\\auth.service.ts",
-              "RelativeToolTip": "..\\VoterSystemFront\\src\\services\\auth.service.ts",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-22T16:55:45.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\leona\\Desktop\\Projetos\\VoterAuthenticationAPI\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T16:46:31.701Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "user.ts",
-              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Projetos\\VoterSystemFront\\src\\models\\user.ts",
-              "RelativeDocumentMoniker": "..\\VoterSystemFront\\src\\models\\user.ts",
-              "ToolTip": "C:\\Users\\leona\\Desktop\\Projetos\\VoterSystemFront\\src\\models\\user.ts",
-              "RelativeToolTip": "..\\VoterSystemFront\\src\\models\\user.ts",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-22T16:46:10.272Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "sign-up.component.ts",
-              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Projetos\\VoterSystemFront\\src\\app\\auth\\sign-up\\sign-up.component.ts",
-              "RelativeDocumentMoniker": "..\\VoterSystemFront\\src\\app\\auth\\sign-up\\sign-up.component.ts",
-              "ToolTip": "C:\\Users\\leona\\Desktop\\Projetos\\VoterSystemFront\\src\\app\\auth\\sign-up\\sign-up.component.ts",
-              "RelativeToolTip": "..\\VoterSystemFront\\src\\app\\auth\\sign-up\\sign-up.component.ts",
-              "ViewState": "AQIAACEAAAAAAAAAAAAUwC4AAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-22T16:45:23.549Z",
-              "EditorCaption": ""
             }
           ]
         }

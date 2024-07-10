@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration.UserSecrets;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
+using VoterAuthenticationAPI.Models;
 
 namespace VoterAuthenticationAPI.Common
 {
@@ -23,37 +19,17 @@ namespace VoterAuthenticationAPI.Common
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
 
-        public static string GenerateJWTToken(long userId)
+        public static string GenerateJWTToken(User user)
         {
-            IdentityOptions options = new IdentityOptions();
-            // We will setup the parameters of token generation
             SecurityTokenDescriptor tokenDescription = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(
                     new Claim[]{
-                        new Claim("userId", userId.ToString())
-                    }
-                ),
-                Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes("AS&(%)D$*N>:*&sdBN%&*danmY(O&OIAsd*&q976fas87hso")),
-                    SecurityAlgorithms.HmacSha256Signature
-                )
-            };
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-            SecurityToken securityToken = tokenHandler.CreateToken(tokenDescription);
-            return tokenHandler.WriteToken(securityToken);
-        }
-
-        public static string GenerateJWTTokenByEmail(string email)
-        {
-            IdentityOptions options = new IdentityOptions();
-            // We will setup the parameters of token generation
-            SecurityTokenDescriptor tokenDescription = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(
-                    new Claim[]{
-                        new Claim("email", email)
+                        new Claim("userId", user.Id.ToString()),
+                        new Claim("userName", user.Name),
+                        new Claim("userEmail", user.Email),
+                        new Claim("userRole", user.RoleId.ToString()),
+                        new Claim("userWallet", user.WalletId.ToString())
                     }
                 ),
                 Expires = DateTime.UtcNow.AddDays(1),
