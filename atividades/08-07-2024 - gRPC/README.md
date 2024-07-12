@@ -7,8 +7,8 @@
 
 1. **Clone o Repositório:**
    ```bash
-   git clone <URL_DO_SEU_REPOSITORIO>
-   cd <NOME_DO_SEU_REPOSITORIO>
+   git clone [<URL_DO_SEU_REPOSITORIO>](https://github.com/software-concorrente-distribuido/aristoteles.git)
+   cd atividades/'08-07-2024 - gRPC'
    ```
 
 2. **Instale as Dependências:**
