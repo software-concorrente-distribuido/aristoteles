@@ -16,25 +16,39 @@ public class InviteController : ControllerBase
     }
 
     [HttpPost("send-invite-link")]
-    public async Task<IActionResult> SendInviteLink(string email)
+    public async Task<IActionResult> SendInviteLink(List<string> emails)
     {
+        var results = new List<object>();
         try
         {
-            var dbuser = await _dataContext.Users
-                .Include(x => x.Role)
-                .FirstOrDefaultAsync(x => x.Email == email);
-            if (dbuser != null)
+            foreach (var email in emails)
             {
-                string recoveryToken = Utils.GenerateJWTTokenByEmail(dbuser.Email);
-                string recoveryLink = $"https://votoembloco.netlify.app/";
-                bool isSent = await Utils.SendLoginLinkEmail(recoveryLink, dbuser.Name, dbuser.Email);
-                if (isSent) return Created("", new { recoveryToken, dbuser.Email });
+                var dbuser = await _dataContext.Users
+                    .Include(x => x.Role)
+                    .FirstOrDefaultAsync(x => x.Email == email);
+                if (dbuser != null)
+                {
+                    string recoveryLink = $"https://votoembloco.netlify.app/";
+                    bool isSent = await Utils.SendLoginLinkEmail(recoveryLink, dbuser.Name, dbuser.Email);
+                    if (isSent)
+                    {
+                        results.Add(new { recoveryLink, dbuser.Email });
+                    }
+                }
+                else
+                {
+                    string recoveryLink = $"https://votoembloco.netlify.app/cadastro/cadastro";
+                    bool isSent = await Utils.SendSignUpLinkEmail(recoveryLink, email);
+                    if (isSent)
+                    {
+                        results.Add(new { recoveryLink, email });
+                    }
+                }
             }
-            else
+
+            if (results.Count > 0)
             {
-                string recoveryLink = $"https://votoembloco.netlify.app/cadastro/cadastro";
-                bool isSent = await Utils.SendSignUpLinkEmail(recoveryLink, email);
-                if (isSent) return Created("", new { recoveryLink, email });
+                return Ok(results);
             }
             return NotFound();
         }

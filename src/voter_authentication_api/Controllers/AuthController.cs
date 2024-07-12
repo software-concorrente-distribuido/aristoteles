@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Nethereum.Signer;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
 using VoterAuthenticationAPI.Models;
@@ -18,7 +17,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("sign-in")]
-    public async Task<ActionResult<User>> SignIn(string email, string senha)
+    public async Task<ActionResult<string?>> SignIn(string email, string senha)
     {
         try
         {
@@ -34,8 +33,8 @@ public class AuthController : ControllerBase
 
             if (Utils.Verify(senha, dbuser.Password))
             {
-                dbuser.Token = Utils.GenerateJWTToken(dbuser.Id);
-                return Ok(dbuser);
+                dbuser.Token = Utils.GenerateJWTToken(dbuser);
+                return Ok(dbuser.Token);
             }
 
             return BadRequest();
@@ -81,7 +80,7 @@ public class AuthController : ControllerBase
             await Utils.SendWelcomeEmail(user.Name, user.Email);
             await transaction.CommitAsync();
 
-            return Created("", user);
+            return Ok(user);
         }
         catch (Exception ex)
         {
