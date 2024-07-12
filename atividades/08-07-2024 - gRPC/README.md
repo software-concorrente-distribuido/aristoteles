@@ -7,7 +7,7 @@
 
 1. **Clone o Repositório:**
    ```bash
-   git clone [<URL_DO_SEU_REPOSITORIO>](https://github.com/software-concorrente-distribuido/aristoteles.git)
+   git clone https://github.com/software-concorrente-distribuido/aristoteles.git
    cd atividades/'08-07-2024 - gRPC'
    ```
 
