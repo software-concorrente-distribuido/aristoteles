@@ -13,6 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CandidatoService>();
+builder.Services.AddScoped<ElectionService>();
+builder.Services.AddScoped<VoterService>();
 
 builder.Services.AddCors(options =>
 {
