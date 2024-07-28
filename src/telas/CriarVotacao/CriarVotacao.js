@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('novo-participante');
     const emailContainer = document.getElementById('email-container');
     const opcoesList = document.getElementById('opcoes-list');
+    const form = document.querySelector('form');
+    const saveButton = document.querySelector('.save-btn');
 
     const validateEmail = (email) => {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -64,6 +66,64 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         loadCandidatos(token);
     }
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        if (validateForm()) {
+            const formData = new FormData(form);
+            const formValues = {};
+    
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+    
+            const emailBadges = emailContainer.querySelectorAll('.email-badge');
+            const emails = [];
+            
+            emailBadges.forEach(badge => {
+                emails.push(badge.textContent.trim());
+            });
+            formValues['emails'] = emails;
+
+            const selectedOptions = [];
+            opcoesList.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedOptions.push(checkbox.value);
+            });
+            formValues['opcoes'] = selectedOptions;
+    
+            console.log(formValues);
+        }
+    });
+
+    function validateForm() {
+        const titulo = document.getElementById('titulo').value.trim();
+        const descricao = document.getElementById('descricao').value.trim();
+        const emails = emailContainer.querySelectorAll('.email-badge').length;
+        const selectedOptions = opcoesList.querySelectorAll('input[type="checkbox"]:checked').length;
+
+        if (titulo === '') {
+            alert('Por favor, preencha o título.');
+            return false;
+        }
+
+        if (descricao === '') {
+            alert('Por favor, preencha a descrição.');
+            return false;
+        }
+
+        if (emails < 2) {
+            alert('Por favor, adicione pelo menos dois e-mails de votantes.');
+            return false;
+        }
+
+        if (selectedOptions < 2) {
+            alert('Por favor, selecione pelo menos dois candidatos.');
+            return false;
+        }
+
+        return true;
+    }
 });
 
 function loadCandidatos(token) {
@@ -85,8 +145,6 @@ function loadCandidatos(token) {
     .then(candidatos => {
         const opcoesList = document.getElementById('opcoes-list');
         opcoesList.innerHTML = '';
-
-        console.log(candidatos)
 
         candidatos.forEach(candidato => {
             const label = document.createElement('label');
