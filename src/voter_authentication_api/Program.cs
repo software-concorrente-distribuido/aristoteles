@@ -1,11 +1,14 @@
 global using Microsoft.EntityFrameworkCore;
 using VoterAuthenticationAPI.Data;
+using VoterAuthenticationAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<UserService>();
 
 builder.Services.AddCors(options =>
 {

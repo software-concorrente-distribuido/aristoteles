@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
 using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Services;
 
 namespace VoterAuthenticationAPI.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class CandidatoController : ControllerBase
 {
-    private readonly DataContext _dataContext;
+    private readonly UserService _userService;
 
-    public CandidatoController(DataContext dataContext)
+    public CandidatoController(UserService userService)
     {
-        _dataContext = dataContext;
+        _userService = userService;
     }
 
     [HttpGet("get-cadastro-candidatos")]
@@ -22,32 +23,10 @@ public class CandidatoController : ControllerBase
     {
         try
         {
-            var userResult = new List<User>();
-            if (string.IsNullOrEmpty(nome))
-            {
-                userResult = await _dataContext.Users.ToListAsync();
-            }
-            else
-            {
-                userResult = await _dataContext.Users
-                    .Where(x => x.Name.Contains(nome))
-                    .ToListAsync();
-            }
+            var userResult = await _userService.BuscaCandidatosUsuario(nome);
 
-            if (userResult.Count > 0)
-            {
-                var candidatoResult = new List<Candidato>();
-                var candidatoMap = new Candidato();
-                foreach (var user in userResult)
-                {
-                    candidatoMap.Id = user.Id;
-                    candidatoMap.Name = user.Name;
-                    candidatoMap.Email = user.Email;
-
-                    candidatoResult.Add(candidatoMap);
-                }
-
-                return Ok(candidatoResult);
+            if (userResult != null){
+                return Ok(userResult);
             }
 
             return NotFound();

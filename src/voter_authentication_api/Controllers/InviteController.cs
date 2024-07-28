@@ -2,34 +2,34 @@
 using Microsoft.AspNetCore.Mvc;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
+using VoterAuthenticationAPI.Services;
 
 namespace VoterAuthenticationAPI.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class InviteController : ControllerBase
 {
-    private readonly DataContext _dataContext;
+    private readonly UserService _userService;
 
-    public InviteController(DataContext dataContext)
+    public InviteController(UserService userService)
     {
-        _dataContext = dataContext;
+        _userService = userService;
     }
 
     [HttpPost("send-invite-link")]
-    public async Task<IActionResult> SendInviteLink(List<string> emails)
+    public async Task<ActionResult> SendInviteLink(List<string> emails)
     {
         var results = new List<object>();
         try
         {
             foreach (var email in emails)
             {
-                var dbuser = await _dataContext.Users
-                    .Include(x => x.Role)
-                    .FirstOrDefaultAsync(x => x.Email == email);
+                var dbuser = await _userService.BuscaUsuario(email);
+
                 if (dbuser != null)
                 {
                     string recoveryLink = $"https://votoembloco.netlify.app/";
-                    bool isSent = await Utils.SendLoginLinkEmail(recoveryLink, dbuser.Name, dbuser.Email);
+                    bool isSent = await AuthService.SendLoginLinkEmail(recoveryLink, dbuser.Name, dbuser.Email);
                     if (isSent)
                     {
                         results.Add(new { recoveryLink, dbuser.Email });
@@ -38,7 +38,7 @@ public class InviteController : ControllerBase
                 else
                 {
                     string recoveryLink = $"https://votoembloco.netlify.app/cadastro/cadastro";
-                    bool isSent = await Utils.SendSignUpLinkEmail(recoveryLink, email);
+                    bool isSent = await AuthService.SendSignUpLinkEmail(recoveryLink, email);
                     if (isSent)
                     {
                         results.Add(new { recoveryLink, email });
@@ -48,7 +48,7 @@ public class InviteController : ControllerBase
 
             if (results.Count > 0)
             {
-                return Ok(results);
+                return Ok();
             }
             return NotFound();
         }

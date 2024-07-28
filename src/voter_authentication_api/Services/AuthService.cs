@@ -7,7 +7,7 @@ using VoterAuthenticationAPI.Models;
 
 namespace VoterAuthenticationAPI.Common
 {
-    public class Utils
+    public class AuthService
     {
         public static string Encrypt(string password)
         {
@@ -41,18 +41,6 @@ namespace VoterAuthenticationAPI.Common
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken = tokenHandler.CreateToken(tokenDescription);
             return tokenHandler.WriteToken(securityToken);
-        }
-
-        public static async Task<bool> SendWelcomeEmail(string fullname, string email)
-        {
-            using EmailService emailService = new EmailService();
-            emailService._body.Append("<html>");
-            emailService._body.Append($"Olá, {fullname}! <br /><br />");
-            emailService._body.Append("Seu cadastro foi efetuado com sucesso!  <br /><br />");
-            emailService._body.Append("Atenciosamente, <br /><br />");
-            emailService._body.Append("Aristóteles");
-            emailService._body.Append("</html>");
-            return await emailService.SendEmailAsync(email, $"Bem-vindo, {fullname}");
         }
 
         public static async Task<bool> SendSignUpLinkEmail(string link, string userEmal)

@@ -3,17 +3,18 @@ using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
 using VoterAuthenticationAPI.Models;
 using VoterAuthenticationAPI.Models.DTOs;
+using VoterAuthenticationAPI.Services;
 
 namespace VoterAuthenticationAPI.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly DataContext _dataContext;
+    private readonly UserService _userService;
 
-    public AuthController(DataContext dataContext)
+    public AuthController(UserService userService)
     {
-        _dataContext = dataContext;
+        _userService = userService;
     }
 
     [HttpPost("sign-in")]
@@ -21,19 +22,16 @@ public class AuthController : ControllerBase
     {
         try
         {
-            var dbuser = await _dataContext.Users
-                .Include(x => x.Role)
-                .Include(x => x.Wallet)
-                .FirstOrDefaultAsync(x => x.Email == email);
+            var dbuser = await _userService.BuscaUsuario(email);
 
             if (dbuser == null)
             {
                 return NotFound();
             }
 
-            if (Utils.Verify(senha, dbuser.Password))
+            if (AuthService.Verify(senha, dbuser.Password))
             {
-                dbuser.Token = Utils.GenerateJWTToken(dbuser);
+                dbuser.Token = AuthService.GenerateJWTToken(dbuser);
                 return Ok(dbuser.Token);
             }
 
@@ -46,58 +44,17 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("sign-up")]
-    public async Task<ActionResult<User>> SignUp(UserDTO userDTO)
+    public async Task<ActionResult> SignUp(UserDTO userDTO)
     {
-        using var transaction = await _dataContext.Database.BeginTransactionAsync();
-
         try
         {
-            await VerificaSeUsuarioExiste(userDTO);
+            await _userService.CadastraUsuario(userDTO);
 
-            var password = userDTO.Password != null ? Utils.Encrypt(userDTO.Password) : throw new ArgumentException("Senha não pode ser nula");
-
-            string? token = null;
-
-            var role = await _dataContext.Roles.FindAsync(2);
-            role = role ?? throw new ArgumentException("Role não pode ser nula");
-
-            Wallet wallet = WalletService.GenerateWallet();
-
-            var user = new User()
-            {
-                Name = userDTO.Name,
-                Email = userDTO.Email,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-                Password = password,
-                Token = token,
-                Role = role,
-                Wallet = wallet
-            };
-
-            await _dataContext.Users.AddAsync(user);
-            await _dataContext.SaveChangesAsync();
-            await Utils.SendWelcomeEmail(user.Name, user.Email);
-            await transaction.CommitAsync();
-
-            return Ok(user);
+            return Ok();
         }
         catch (Exception ex)
         {
-            await transaction.RollbackAsync();
             return BadRequest(ex.Message);
-        }
-    }
-
-    private async Task VerificaSeUsuarioExiste(UserDTO userDTO)
-    {
-        var dbUser = await _dataContext.Users
-                        .Include(x => x.Role)
-                        .FirstOrDefaultAsync(x => x.Email == userDTO.Email);
-
-        if (dbUser != null)
-        {
-            throw new ArgumentException("Usuário já existe");
         }
     }
 }
