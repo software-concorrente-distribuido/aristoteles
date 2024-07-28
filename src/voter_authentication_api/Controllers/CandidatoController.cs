@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
 using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Models.DTOs;
 using VoterAuthenticationAPI.Services;
 
 namespace VoterAuthenticationAPI.Controllers;
@@ -42,11 +43,11 @@ public class CandidatoController : ControllerBase
     }
 
     [HttpPost("addCandidate")]
-    public async Task<ActionResult> AddCandidate(int electionId, string name, string adress)
+    public async Task<ActionResult> AddCandidate(List<CandidatoDTO> candidatos)
     {
         try
         {
-            await _candidatoService.AddCandidate(electionId, name, adress);
+            await _candidatoService.AddCandidate(candidatos);
 
             return Ok();
         }

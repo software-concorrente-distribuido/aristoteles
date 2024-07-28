@@ -1,10 +1,11 @@
 ﻿using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Models.DTOs;
 
 namespace VoterAuthenticationAPI.Services
 {
     public class VoterService
     {
-        public async Task addVoter(int electionId, string name, string password, string address)
+        public async Task addVoter(List<VoterDTO> voters)
         {
             await Task.CompletedTask;
         }

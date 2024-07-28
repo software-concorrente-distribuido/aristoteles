@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Models.DTOs;
 using VoterAuthenticationAPI.Services;
 
 namespace VoterAuthenticationAPI.Controllers;
@@ -19,11 +20,11 @@ public class VoterController : ControllerBase
     }
 
     [HttpPost("addVoter")]
-    public async Task<ActionResult> addVoter(int electionId, string name, string password, string address)
+    public async Task<ActionResult> addVoter(List<VoterDTO> voters)
     {
         try
         {
-            await _voterService.addVoter(electionId, name, password, address);
+            await _voterService.addVoter(voters);
 
             return Ok();
         }
