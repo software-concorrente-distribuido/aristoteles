@@ -115,6 +115,8 @@ body {
 .container {
     padding: 20px;
     display: flex;
+    overflow-y: auto;
+    height: 80vh;
     flex-direction: column;
     align-items: center;
 }
@@ -128,12 +130,12 @@ h2 {
     background-color: var(--cor-card-fundo);
     color: var(--cor-card-texto);
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--cor-borda-card);
-    width: 80%;
-    max-width: 400px;
+    width: 90%;
+    max-width: 600px;
 }
 
 .votacao-header {
@@ -175,4 +177,55 @@ h2 {
 
 .btn-visualizar:hover {
     background-color: var(--cor-botao-hover);
+}
+
+
+.container-animacao{
+    display: flex;
+    bottom: 40%;
+    position: absolute;
+    width: 200%;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: -1;
+    animation: mover-blockchain-lado 60s infinite linear;
+}
+
+.bloco{
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    color: white;
+    align-items: center;
+    filter: blur(2px);
+    justify-content: center;
+    z-index: -1;
+    border-radius: 3px;
+    background-color: #102C57;
+}
+
+.linha{
+    height: 4px;
+    width: 100%;
+    filter: blur(2px);
+    z-index: -1;
+    background-color: #102C57;
+    
+}
+
+@keyframes mover-blockchain-lado {
+    0% {
+        translate: 0 0;
+    }
+    100% {
+        translate: -45.5% 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-animacao {
+        display: none;
+    }
 }

@@ -1,0 +1,214 @@
+:root {
+    --cor-fundo-body: pink;
+    --cor-fundo-menu: #2C3E50;
+    --cor-texto-menu: #FFFFFF;
+    --cor-texto-titulo: #102C57;
+    --cor-texto: #333;
+    --cor-botao: #1679AB;
+    --cor-botao-hover: #125682;
+    --cor-card-fundo: #2C3E50;
+    --cor-card-texto: #FFFFFF;
+    --cor-status-realizado: #2ECC71;
+    --cor-status-nao-votado: #E74C3C;
+    --cor-borda-card: #2C3E50;
+    --cor-container-fundo: #F8F8F8;
+    --cor-section-fundo: #102C57;
+    --cor-titulo-texto: #102C57;
+    --cor-descricao-fundo: #000080;
+    --cor-descricao-texto: #FFFFFF;
+    --cor-opcoes-fundo: #000080;
+    --cor-opcao-selecionada: #1679AB;
+    --cor-opcao-texto: #FFFFFF;
+    --cor-usuario-badge: #FF3366;
+    --cor-grafico-barras: #1ABC9C;
+    --cor-grafico-barras-selecionada: #1679AB;
+}
+
+
+@keyframes blockchain {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+
+    background-color: var(--cor-fundo-body);
+    background-image: 
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+    background-size: 100px 100px;
+    animation: blockchain 20s infinite linear;
+    overflow: hidden;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--cor-fundo-menu);
+    color: var(--cor-texto-menu);
+}
+
+.menu {
+    position: relative;
+}
+
+.menu i {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    width: 150px;
+    top: 23px;
+    left: 0;
+    background-color: var(--cor-fundo-menu);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden; 
+    transition: max-height 0.3s ease;
+}
+
+
+.menu-content a {
+    display: block;
+    padding: 5px;
+    color: var(--cor-texto-menu);
+    text-decoration: none;
+}
+
+.menu-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu:hover .menu-content {
+    display: block;
+}
+
+.admin-badge {
+    background-color: var(--cor-usuario-badge);
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.logout {
+    color: var(--cor-texto-menu);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logout i {
+    margin-right: 5px;
+}
+
+.container {
+    padding: 20px 0;
+    display: flex;
+    overflow-y: auto;
+    width: 30%;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    width: 80%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--cor-section-fundo);
+    color: var(--cor-descricao-texto);
+    margin-bottom: 20px;
+}
+
+.section-titulo {
+    color: white;
+}
+
+.section-descricao {
+    color: var(--cor-descricao-texto);
+}
+
+.section-prazo {
+    background-color: var(--cor-section-fundo);
+    color: var(--cor-descricao-texto);
+}
+
+h3, p {
+    margin: 0 0 10px 0;
+}
+
+.opcoes {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 90%;
+    background-color: var(--cor-section-fundo);
+    border-radius: 5px;
+}
+
+.opcao span {
+    color: var(--cor-opcao-texto);
+}
+
+.grafico-barra {
+    background-color: var(--cor-grafico-barras);
+    height: 10px;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.opcao-selecionada .grafico-barra {
+    background-color: var(--cor-grafico-barras-selecionada);
+}
+
+.botaoVoltar{
+    align-self: start;
+    margin: 2% 6%;
+}
+
+.btnVoltar{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #125682;
+    color: white;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btnVoltar:hover{
+    background-color: #1679AB;
+}
