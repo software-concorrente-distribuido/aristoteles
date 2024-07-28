@@ -208,6 +208,8 @@ form {
     align-items: center;
     margin-bottom: 5px;
     color: var(--cor-texto-titulo);
+    margin: 5px 0px;
+    border-bottom: 1px solid #102C57 ;
 }
 
 .opcoes-list input {
@@ -247,6 +249,8 @@ form {
     border-radius: 5px;
     padding: 10px;
     max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .radio-container {

@@ -20,9 +20,7 @@
             </div>
 
             <div class="user-info">
-                <span>Nome: João da Silva</span>
                 <a href="#" id="logout" class="logout"><i class="fas fa-sign-out-alt"></i> SAIR</a>
-
             </div>
         </div>
     </header>
@@ -52,23 +50,11 @@
                         <input type="text" id="novo-participante" name="novo-participante" placeholder="Digite o e-mail">
                         <button type="button" class="add-btn"><i class="fas fa-plus"></i></button>
                     </div>
-                    <div id="email-container" class="email-container"></div> <!-- Novo contêiner para os emails -->
+                    <div id="email-container" class="email-container"></div>
                 </div>
                 <div class="form-group">
-                    <label>Opções</label>
-                    <div class="opcoes-list">
-                        <label class="radio-container">Opção I
-                            <input type="radio" name="opcao" value="opcao1">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container">Opção II
-                            <input type="radio" name="opcao" value="opcao2">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container">Opção III
-                            <input type="radio" name="opcao" value="opcao3">
-                            <span class="checkmark"></span>
-                        </label>
+                    <label>Candidatos</label>
+                    <div class="opcoes-list" id="opcoes-list">
                     </div>
                 </div>                                             
                 <div class="form-actions">
