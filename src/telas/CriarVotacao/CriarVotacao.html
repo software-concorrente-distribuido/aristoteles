@@ -6,6 +6,7 @@
     <title>Nova Votação</title>
     <link rel="stylesheet" href="styleCriarVotacao.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="../Imagens/iconeBlockChain2.png" type="image/x-icon"> 
 </head>
 <body>
     <header>
@@ -17,10 +18,9 @@
                     <a href="../CriarVotacao/CriarVotacao.html">Iniciar Votação</a>
                 </div>
             </div>
-            <div class="admin-badge">ADM</div>
+
             <div class="user-info">
-                <span>Nome: João da Silva</span>
-                <a href="../Login/index.html" class="logout"><i class="fas fa-sign-out-alt"></i> SAIR</a>
+                <a href="#" id="logout" class="logout"><i class="fas fa-sign-out-alt"></i> SAIR</a>
             </div>
         </div>
     </header>
@@ -37,40 +37,24 @@
                     <label for="descricao">Descrição</label>
                     <textarea id="descricao" name="descricao"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="data-final">Data final</label>
-                    <div class="datetime-container">
-                        <input type="date" id="data-final" name="data-final">
-                        <input type="time" id="horario-final" name="horario-final">
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <label>Adicionar votantes</label>
                     <div class="votantes-list">
                         <input type="text" id="novo-participante" name="novo-participante" placeholder="Digite o e-mail">
                         <button type="button" class="add-btn"><i class="fas fa-plus"></i></button>
                     </div>
-                    <div id="email-container" class="email-container"></div> <!-- Novo contêiner para os emails -->
+                    <div id="email-container" class="email-container"></div>
                 </div>
                 <div class="form-group">
-                    <label>Opções</label>
-                    <div class="opcoes-list">
-                        <label class="radio-container">Opção I
-                            <input type="radio" name="opcao" value="opcao1">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container">Opção II
-                            <input type="radio" name="opcao" value="opcao2">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container">Opção III
-                            <input type="radio" name="opcao" value="opcao3">
-                            <span class="checkmark"></span>
-                        </label>
+                    <label>Candidatos</label>
+                    <div class="opcoes-list" id="opcoes-list">
                     </div>
                 </div>                                             
                 <div class="form-actions">
-                    <button type="button" class="cancel-btn">Cancelar</button>
+                    <a href="../Votacoes/Votacoes.html">
+                        <button  type="button" class="cancel-btn">Cancelar</button>
+                    </a>
                     <button type="submit" class="save-btn">Salvar</button>
                 </div>
             </form>
