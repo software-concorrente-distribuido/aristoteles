@@ -1,6 +1,6 @@
 :root {
     --cor-fundo-body: #FFCBCB;
-    --cor-fundo-container: #FFFFFF;
+    --cor-fundo-container: rgba(255, 255, 255, 0.5);
     --cor-texto-titulo: #102C57;
     --cor-texto-label: #12648d;
     --cor-borda-input: #CCC;
