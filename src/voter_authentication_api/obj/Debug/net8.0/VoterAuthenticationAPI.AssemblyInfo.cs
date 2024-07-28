@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VoterAuthenticationAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+644a1a78b746bec6537e6866ea7de741bff72125")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+912a0d4876d46470f0353a99e6807e7adff559fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoterAuthenticationAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoterAuthenticationAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
