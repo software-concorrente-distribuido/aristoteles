@@ -237,21 +237,20 @@ h2 {
     }
 }
 
-/* Para navegadores WebKit (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 8px; /* Largura da scrollbar */
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--cor-fundo-body); /* Cor do fundo da scrollbar */
+    background-color: var(--cor-fundo-body);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(227, 97, 118); /* Cor do "polegar" da scrollbar */
-    border-radius: 4px; /* Bordas arredondadas do "polegar" */
+    background-color: rgb(227, 97, 118);
+    border-radius: 4px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(225, 21, 55); /* Cor do "polegar" ao passar o mouse */
+    background-color: rgb(225, 21, 55);
 }

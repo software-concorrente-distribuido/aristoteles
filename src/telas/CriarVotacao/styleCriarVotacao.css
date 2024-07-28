@@ -156,7 +156,7 @@ form {
     border: 1px solid #ccc;
     resize: none;
     border-radius: 5px;
-    box-sizing: border-box; /* Garantir que padding e border estão incluídos na largura total */
+    box-sizing: border-box;
 }
 
 .votantes-list {
@@ -171,7 +171,7 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
-    box-sizing: border-box; /* Garantir que padding e border estão incluídos na largura total */
+    box-sizing: border-box;
 }
 
 .votantes-list span {
@@ -241,8 +241,6 @@ form {
     background-color: var(--cor-botao-hover);
 }
 
-
-/* Estilos para as opções */
 .opcoes-list {
     background-color: #f2f2f2;
     border: 1px solid #ccc;
@@ -303,8 +301,6 @@ form {
     background: white;
 }
 
-
-/* Animação ao clicar */
 .radio-container input:checked ~ .checkmark {
     animation: pulse 0.5s ease;
 }
@@ -351,18 +347,18 @@ form {
 }
 
 ::-webkit-scrollbar {
-    width: 5px; /* Largura da scrollbar */
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--cor-fundo-body); /* Cor do fundo da scrollbar */
+    background-color: var(--cor-fundo-body);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(227, 97, 118); /* Cor do "polegar" da scrollbar */
-    border-radius: 4px; /* Bordas arredondadas do "polegar" */
+    background-color: rgb(227, 97, 118);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(225, 21, 55); /* Cor do "polegar" ao passar o mouse */
+    background-color: rgb(225, 21, 55);
 }
