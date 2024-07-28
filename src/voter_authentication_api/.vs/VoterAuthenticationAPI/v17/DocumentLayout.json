@@ -1,7 +1,36 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles - final\\aristoteles\\src\\voter_authentication_api\\voterauthenticationapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:voterauthenticationapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,10 +51,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -70,6 +95,97 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Migrations\\DataContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\DataContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Migrations\\DataContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\DataContextModelSnapshot.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAgwDEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T20:08:45.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowEUAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T20:05:26.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WalletService.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Services\\WalletService.cs",
+              "RelativeDocumentMoniker": "Services\\WalletService.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Services\\WalletService.cs",
+              "RelativeToolTip": "Services\\WalletService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T20:05:23.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAACHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-28T19:42:26.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T19:42:21.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\Data\\DataContext.cs",
+              "RelativeToolTip": "Data\\DataContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T19:41:47.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VoterAuthenticationAPI",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+              "RelativeDocumentMoniker": "VoterAuthenticationAPI.csproj",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+              "RelativeToolTip": "VoterAuthenticationAPI.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-28T19:39:55.008Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -28,7 +28,6 @@ namespace VoterAuthenticationAPI.Common
                         new Claim("userId", user.Id.ToString()),
                         new Claim("userName", user.Name),
                         new Claim("userEmail", user.Email),
-                        new Claim("userRole", user.RoleId.ToString()),
                         new Claim("userWallet", user.WalletId.ToString())
                     }
                 ),

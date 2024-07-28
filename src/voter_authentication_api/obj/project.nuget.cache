@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c3Sl/C5MoVfSEIoZjuDhVp1bvjBNiJhidyXSbaDVwqGkkwLBKJ9VE2uTvUmOMSl5bO7Zh6ZoLxChyV4KLoW3pw==",
+  "dgSpecHash": "pJIC0+nkZ44oyZIqjDyS5uZgnmNymB1bh4hHCptrKhhpBIKsBZ8h5sB5fD6tZzihqPQmJLgBMlpapOZxxAn1Hg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+  "projectFilePath": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -13,8 +13,6 @@ namespace VoterAuthenticationAPI.Models
         public string Password { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public int RoleId { get; set; }
-        public required Role Role { get; set; }
         public int WalletId { get; set; }
         public required Wallet Wallet { get; set; }
 

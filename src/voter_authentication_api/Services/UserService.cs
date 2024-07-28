@@ -70,8 +70,6 @@ namespace VoterAuthenticationAPI.Services
             var password = userDTO.Password != null ? AuthService.Encrypt(userDTO.Password) : throw new ArgumentException("Senha não pode ser nula");
             string? token = null;
 
-            var role = await _dataContext.Roles.FindAsync(2);
-            role = role ?? throw new ArgumentException("Role não pode ser nula");
 
             Wallet wallet = WalletService.GenerateWallet();
 
@@ -83,7 +81,6 @@ namespace VoterAuthenticationAPI.Services
                 UpdatedAt = DateTime.Now,
                 Password = password,
                 Token = token,
-                Role = role,
                 Wallet = wallet
             };
 
