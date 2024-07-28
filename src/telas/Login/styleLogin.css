@@ -1,5 +1,6 @@
 :root {
-    --cor-fundo-body: #FFCBCB;
+    --cor-fundo-body: pink;
+    --cor-fundo-rgb: 255, 255, 255;
     --cor-fundo-container: #FFFFFF;
     --cor-texto-titulo: #102C57;
     --cor-texto-label: #12648d;
@@ -39,7 +40,7 @@ body {
 }
 
 .login-container {
-    background-color: var(--cor-fundo-container);
+    background-color: rgba(var(--cor-fundo-rgb), 0.5);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 20px var(--cor-sombra-box);
@@ -48,6 +49,7 @@ body {
     max-width: 90%;
     transition: transform 0.3s ease-in-out;
 }
+
 
 .login-container:hover {
     transform: scale(1.05);

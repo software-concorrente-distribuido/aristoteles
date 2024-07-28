@@ -1,0 +1,219 @@
+:root {
+    --cor-fundo-body: #F8F8F8;
+    --cor-fundo-menu: #2C3E50;
+    --cor-texto-menu: #FFFFFF;
+    --cor-texto-titulo: #102C57;
+    --cor-texto: #333;
+    --cor-botao: #1679AB;
+    --cor-botao-hover: #125682;
+    --cor-card-fundo: #2C3E50;
+    --cor-card-texto: #FFFFFF;
+    --cor-status-realizado: #2ECC71;
+    --cor-status-nao-votado: #E74C3C;
+    --cor-borda-card: #2C3E50;
+    --cor-container-fundo: #1C2C40;
+    --cor-section-titulo-fundo: #36475B;
+    --cor-section-descricao-fundo: #283546;
+    --cor-section-prazo-fundo: #3D4B5C;
+    --cor-section-opcoes-fundo: #283546;
+}
+
+@keyframes blockchain {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 -100%;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+
+    background-color: pink;
+    background-image: 
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+    background-size: 100px 100px;
+    animation: blockchain 20s infinite linear;
+    overflow: hidden;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--cor-fundo-menu);
+    color: var(--cor-texto-menu);
+}
+
+.menu {
+    position: relative;
+}
+
+.menu i {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    width: 150px;
+    top: 23px;
+    left: 0;
+    background-color: var(--cor-fundo-menu);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden; 
+    transition: max-height 0.3s ease;
+}
+
+
+.menu-content a {
+    display: block;
+    padding: 5px;
+    color: var(--cor-texto-menu);
+    text-decoration: none;
+}
+
+.menu-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu:hover .menu-content {
+    display: block;
+}
+
+.admin-badge {
+    background-color: #E74C3C;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.logout {
+    color: var(--cor-texto-menu);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logout i {
+    margin-right: 5px;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    overflow-y: auto;
+    background-color: var(--cor-container-fundo);
+    width: 30%;
+    margin: auto;
+    margin-top: 1%;
+    border-radius: 10px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.section {
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.section-titulo {
+    background-color: var(--cor-section-titulo-fundo);
+    color: white;
+}
+
+.section-descricao {
+    background-color: var(--cor-section-descricao-fundo);
+    color: white;
+}
+
+.section-prazo {
+    background-color: var(--cor-section-prazo-fundo);
+    color: white;
+}
+
+.section-opcoes {
+    background-color: var(--cor-section-opcoes-fundo);
+    color: white;
+}
+
+h3, p {
+    margin: 0 0 10px 0;
+}
+
+.opcoes {
+    margin-top: 10px;
+}
+
+.opcao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.btn-votar {
+    background-color: var(--cor-botao);
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.btn-votar:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+.btn-container {
+    align-self: flex-end;
+}
+
+.btn {
+    background-color: var(--cor-botao);
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+
+.btn-salvar{
+    background-color: rgb(65, 161, 65);
+}
+.btn-cancelar{
+    background-color: rgb(196, 58, 58);
+}
