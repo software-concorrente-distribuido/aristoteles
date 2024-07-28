@@ -1,23 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
 
-    const loginForm = document.getElementById('login-form');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
+    // Obtendo valores dos campos
+    const email = encodeURIComponent(document.getElementById('email').value);
+    const password = encodeURIComponent(document.getElementById('password').value);
 
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+    // Validando os campos
+    if (!email || !password) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
 
-        let email = emailInput.value.trim();
-        let password = passwordInput.value.trim();
+    // Construindo a URL com os parâmetros
+    const url = `https://localhost:44359/api/Auth/sign-in?email=${email}&senha=${password}`;
 
-        if (email === '' || password === '') {
-            alert('Por favor, preencha todos os campos do formulário de login.');
-            return;
+    // Requisição fetch para o backend
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'text/plain'
         }
-
-        console.log(`Login - Email: ${email}, Senha: ${password}`);
-
-        window.location.href = "../Votacoes/Votacoes.html"
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // Espera-se que a resposta seja o token como string
+        } else {
+            throw new Error('Erro ao fazer login.');
+        }
+    })
+    .then(token => {
+        // Armazena o token no localStorage
+        localStorage.setItem('authToken', token);
+        
+        // Redireciona para a tela de menu principal
+        window.location.href = '../Votacoes/Votacoes.html'; // Substitua 'menuPrincipal.html' pela URL correta
+    })
+    .catch(error => {
+        console.error('Erro:', error.message); // Exibe o erro no console
     });
-
 });
