@@ -10,16 +10,18 @@ using VoterAuthenticationAPI.Services;
 namespace VoterAuthenticationAPI.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class CandidatoController : ControllerBase
 {
+    private readonly CandidatoService _candidatoService;
     private readonly UserService _userService;
 
-    public CandidatoController(UserService userService)
+    public CandidatoController(CandidatoService candidatoService, UserService userService)
     {
+        _candidatoService = candidatoService;
         _userService = userService;
     }
 
-    [Authorize]
     [HttpGet("get-cadastro-candidatos")]
     public async Task<ActionResult<List<Candidato>>> GetAllAsync(string? nome)
     {
@@ -30,6 +32,53 @@ public class CandidatoController : ControllerBase
             if (userResult != null){
                 return Ok(userResult);
             }
+
+            return NotFound();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex);
+        }
+    }
+
+    [HttpPost("addCandidate")]
+    public async Task<ActionResult> AddCandidate(int electionId, string name, string adress)
+    {
+        try
+        {
+            await _candidatoService.AddCandidate(electionId, name, adress);
+
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex);
+        }
+    }
+
+    [HttpDelete("removeCandidateElection")]
+    public async Task<ActionResult> removeCandidateElection(int electionId, int candidateId)
+    {
+        try
+        {
+            await _candidatoService.removeCandidateElection(electionId, candidateId);
+          
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex);
+        }
+    }
+
+    [HttpPut("updateCandidate")]
+    public async Task<ActionResult> updateCandidate(string nome)
+    {
+        try
+        {
+            await _candidatoService.updateCandidate(nome);
+
+            Ok();
 
             return NotFound();
         }
