@@ -18,6 +18,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutLink = document.getElementById('logout');
+
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            localStorage.removeItem('authToken');
+
+            window.location.href = '../Login/index.html';
+        });
+    }
+});
+
+window.addEventListener('load', function() {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+        window.location.href = '../Login/index.html';
+    }
+
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.querySelector('.menu i');

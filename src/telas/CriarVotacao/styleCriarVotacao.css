@@ -1,5 +1,5 @@
 :root {
-    --cor-fundo-body: #F8F8F8;
+    --cor-fundo-body: pink;
     --cor-fundo-menu: #2C3E50;
     --cor-texto-menu: #FFFFFF;
     --cor-texto-titulo: #102C57;
@@ -135,6 +135,7 @@ form {
     box-sizing: border-box; 
     overflow-y: auto;
     overflow-x: hidden;
+    max-height: 80vh;
 }
 
 .form-group {
@@ -243,10 +244,11 @@ form {
 
 /* Estilos para as opções */
 .opcoes-list {
-    background-color: #f2f2f2; /* Cor de fundo para as opções */
+    background-color: #f2f2f2;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+    max-height: 150px;
 }
 
 .radio-container {
@@ -271,8 +273,8 @@ form {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    height: 16px;
-    width: 16px;
+    height: 12px;
+    width: 12px;
     background-color: #ccc;
     border-radius: 50%;
 }
@@ -295,8 +297,8 @@ form {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: white;
 }
@@ -346,4 +348,21 @@ form {
 .email-badge i {
     margin-left: 5px;
     cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 5px; /* Largura da scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--cor-fundo-body); /* Cor do fundo da scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(227, 97, 118); /* Cor do "polegar" da scrollbar */
+    border-radius: 4px; /* Bordas arredondadas do "polegar" */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(225, 21, 55); /* Cor do "polegar" ao passar o mouse */
 }
