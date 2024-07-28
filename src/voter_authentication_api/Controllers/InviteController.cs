@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
@@ -16,6 +17,7 @@ public class InviteController : ControllerBase
         _userService = userService;
     }
 
+    [Authorize]
     [HttpPost("send-invite-link")]
     public async Task<ActionResult> SendInviteLink(List<string> emails)
     {
