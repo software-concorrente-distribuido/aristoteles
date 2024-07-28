@@ -10,8 +10,8 @@
     --cor-borda-card: rgb(211, 118, 133);
     --cor-sombra-card: rgb(227, 97, 118);
     --cor-status-nao-votado: #E74C3C;
-    --cor-borda-card: #2C3E50;
     --cor-fundo-blockchain: rgb(227, 97, 118);
+    --cor-status-realizado: rgb(40, 161, 13);
 }
 
 @keyframes slow-background-animation {
