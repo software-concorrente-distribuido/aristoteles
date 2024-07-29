@@ -11,7 +11,7 @@
         "ethash": {}
     },
     "difficulty": "1",
-    "gasLimit": "12000000",
+    "gasLimit": "20000000",
     "alloc": {
         "ADDRESS_1": {
             "balance": "INITIAL_BALANCE"

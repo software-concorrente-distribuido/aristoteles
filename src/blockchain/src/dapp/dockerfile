@@ -9,16 +9,15 @@ COPY genesis.json .
 RUN echo ${ACCOUNT_PASSWORD} > ./password.txt \
     && geth --password ./password.txt account new > account1.txt \
     && geth --password ./password.txt account new > account2.txt \
-    && cat account1.txt \
-    && cat account2.txt \
     && ADDRESS_1=$(grep 'Public address of the key:' account1.txt | awk '{print $NF}') \
     && ADDRESS_2=$(grep 'Public address of the key:' account2.txt | awk '{print $NF}') \
+    && rm -rf account1.txt account2.txt \
     && echo "$ADDRESS_1" > ADDRESS_1.txt \
     && echo "$ADDRESS_2" > ADDRESS_2.txt \
     && sed -i "s/ADDRESS_1/${ADDRESS_1}/g" genesis.json \
     && sed -i "s/ADDRESS_2/${ADDRESS_2}/g" genesis.json \
     && sed -i "s/INITIAL_BALANCE/${INITIAL_BALANCE}/g" genesis.json \
-    && geth init ./genesis.json
-
+    && geth init ./genesis.json \
+    && rm -f ~/.ethereum/geth/nodekey 
 
 ENTRYPOINT ["geth"]
