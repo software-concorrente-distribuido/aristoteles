@@ -232,3 +232,14 @@ body {
     display: block;
     opacity: 1;
 }
+
+.input-distrito{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 18px;
+}
+
+.input-distrito div{
+    display: flex;
+}
