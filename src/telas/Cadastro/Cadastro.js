@@ -34,11 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const requestBody = {
             Name: nome,
             Email: email,
-            Password: senha,
-            Distrito: distritoValue
+            Password: senha
         };
-
-        console.log(requestBody)
 
         fetch('https://localhost:44359/api/Auth/sign-up', {
             method: 'POST',
