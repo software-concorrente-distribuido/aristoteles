@@ -12,5 +12,12 @@
     },
     "difficulty": "1",
     "gasLimit": "12000000",
-    "alloc": {}
+    "alloc": {
+        "ADDRESS_1": {
+            "balance": "INITIAL_BALANCE"
+        },
+        "ADDRESS_2": {
+            "balance": "INITIAL_BALANCE"
+        }
+    }
 }
