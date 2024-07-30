@@ -1,4 +1,50 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const menuIcon = document.querySelector('.menu i');
+    const menuContent = document.querySelector('.menu-content');
+    const addButton = document.querySelector('.add-btn');
+
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    const addEmailBadge = (email) => {
+        const badge = document.createElement('div');
+        badge.classList.add('email-badge');
+        badge.innerHTML = `
+            ${email} 
+            <i class="fas fa-times"></i>
+        `;
+
+        badge.querySelector('i').addEventListener('click', () => {
+            emailContainer.removeChild(badge);
+        });
+
+        emailContainer.appendChild(badge);
+    }
+
+    addButton.addEventListener('click', () => {
+        const email = emailInput.value.trim();
+        if (validateEmail(email)) {
+            addEmailBadge(email);
+            emailInput.value = '';
+        } else {
+            alert('Por favor, insira um e-mail válido.');
+        }
+    });
+
+    menuIcon.addEventListener('click', function () {
+        menuContent.classList.toggle('show');
+        const isVisible = menuContent.classList.contains('show');
+        menuContent.style.maxHeight = isVisible ? menuContent.scrollHeight + "px" : "0";
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!menuIcon.contains(event.target) && !menuContent.contains(event.target)) {
+            menuContent.classList.remove('show');
+            menuContent.style.maxHeight = "0";
+        }
+    });
 
     const logoutLink = document.getElementById('logout');
     if (logoutLink) {
@@ -66,6 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 formValues[key] = value;
             });
 
+            const emailBadges = emailContainer.querySelectorAll('.email-badge');
+            const emails = [];
+
+            emailBadges.forEach(badge => {
+                emails.push(badge.textContent.trim());
+            });
+            formValues['emails'] = emails;
+
             const selectedOptions = [];
             opcoesList.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
                 selectedOptions.push(checkbox.value);
@@ -94,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => {
                     if (response.ok) {
-                        return response.json().catch(() => {});
+                        return response.json().catch(() => {}); // Tratamento para respostas vazias ou inválidas
                     } else {
                         throw new Error('Erro ao criar a eleição.');
                     }
@@ -111,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function validateForm() {
         const titulo = document.getElementById('titulo').value.trim();
         const descricao = document.getElementById('descricao').value.trim();
+        const emails = emailContainer.querySelectorAll('.email-badge').length;
         const selectedOptions = opcoesList.querySelectorAll('input[type="checkbox"]:checked').length;
     
         const errorList = [];
@@ -121,6 +176,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
         if (descricao === '') {
             errorList.push('Por favor, preencha a descrição.');
+        }
+    
+        if (emails < 2) {
+            errorList.push('Por favor, adicione pelo menos dois e-mails de votantes.');
         }
     
         if (selectedOptions < 2) {
