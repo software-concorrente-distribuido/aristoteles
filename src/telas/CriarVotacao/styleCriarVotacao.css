@@ -158,24 +158,6 @@ form {
     box-sizing: border-box;
 }
 
-.votantes-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.votantes-list input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-    box-sizing: border-box;
-}
-
-.votantes-list span {
-    margin-right: 10px;
-}
 
 .add-btn,
 .edit-btn,
@@ -312,19 +294,6 @@ form {
     0% { background-color: #2196F3; }
     50% { background-color: rgb(78, 199, 78); }
     100% { background-color: #2196F3; }
-}
-
-.email-container {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
-    max-height: 100px;
-    min-height: 28px;
-    padding: 2px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    gap: 10px;
 }
 
 .email-badge {

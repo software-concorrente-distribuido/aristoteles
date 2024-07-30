@@ -24,17 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const distrito = document.querySelector('input[name="distrito"]:checked');
-        const distritoValue = distrito ? distrito.value : null;
 
-        if (!distritoValue) {
+        if (!distrito) {
             alert('Por favor, selecione um distrito.');
             return;
         }
 
+        const distritoId = distrito.value;
+
         const requestBody = {
             Name: nome,
             Email: email,
-            Password: senha
+            Password: senha,
+            District: distritoId
         };
 
         fetch('https://localhost:44359/api/Auth/sign-up', {
