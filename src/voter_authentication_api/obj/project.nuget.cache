@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R3MecHHMGZbahSKesmh10o2ihUf3/PjQuLfu3JW7no68bty3tSpliFB18P5F+EIJXPGXfUQYBSrvX2z7OdUcMg==",
+  "dgSpecHash": "XNUlIL0+iNMT3NT3gER0WIaagtHXrPwsYcOZfk9oiyj+SBS6emhpw9q9DwmwZyLqarDiaAPLnE/BjI9ztI+Q8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+  "projectFilePath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leona\\.nuget\\packages\\adraffy.ensnormalize\\0.1.5\\adraffy.ensnormalize.0.1.5.nupkg.sha512",
     "C:\\Users\\leona\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
