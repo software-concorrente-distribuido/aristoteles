@@ -1,6 +1,6 @@
 :root {
-    --cor-fundo-body: #000000;
-    --cor-fundo-menu: #921ce6;
+    --cor-fundo-body: white;
+    --cor-fundo-menu: rgb(110, 191, 231);
     --cor-texto-menu: #FFFFFF;
     --cor-texto-titulo: #102C57;
     --cor-texto: #333;
@@ -40,11 +40,19 @@ body {
 
     background-color: var(--cor-fundo-body);
     background-image: 
-        linear-gradient(45deg, rgb(157, 22, 230) 5%, transparent 10%),
-        linear-gradient(-45deg, rgb(220, 80, 255) 5%, transparent 10%);
+    linear-gradient(45deg, rgb(110, 191, 231) 6px, transparent 10px),
+    linear-gradient(-45deg, rgb(25, 41, 191) 6px, transparent 10px),
+    linear-gradient(135deg, rgb(25, 41, 191) 6px, transparent 10px),
+    linear-gradient(-135deg, rgb(110, 191, 231) 6px, transparent 10px);
     background-size: 100px 100px;
-    animation: blockchain 60s infinite linear;
+    animation: blockchain 400s infinite linear;
     overflow: hidden;
+}
+
+h2 {
+    color: var(--cor-texto-titulo);
+    text-align: center;
+    font-size: 30px;
 }
 
 .menu-bar {
@@ -199,7 +207,7 @@ h3, p {
 }
 
 .btnVoltar{
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: none;
     border-radius: 6px;
     background-color: #125682;

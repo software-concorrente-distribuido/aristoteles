@@ -58,12 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // const token = localStorage.getItem('authToken');
-    // if (!token) {
-    //     window.location.href = '../Login/index.html';
-    // } else {
-    //     loadCandidatos(token);
-    // }
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        window.location.href = '../Login/index.html';
+    } else {
+        loadCandidatos(token);
+    }
 
     function loadCandidatos(token) {
         const url = 'https://localhost:44359/api/Candidato/get-cadastro-candidatos';
