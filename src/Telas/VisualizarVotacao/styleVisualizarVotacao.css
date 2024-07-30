@@ -7,18 +7,18 @@
     --cor-botao: #1679AB;
     --cor-botao-hover: #125682;
     --cor-card-fundo: #2C3E50;
-    --cor-card-texto: #FFFFFF;
+    --cor-card-texto: #151780;
     --cor-status-realizado: #2ECC71;
     --cor-status-nao-votado: #E74C3C;
     --cor-borda-card: #2C3E50;
     --cor-container-fundo: #F8F8F8;
-    --cor-section-fundo: #102C57;
+    --cor-section-fundo: rgb(110, 191, 231);
     --cor-titulo-texto: #102C57;
     --cor-descricao-fundo: #000080;
-    --cor-descricao-texto: #FFFFFF;
+    --cor-descricao-texto: #151780;
     --cor-opcoes-fundo: #000080;
     --cor-opcao-selecionada: #1679AB;
-    --cor-opcao-texto: #FFFFFF;
+    --cor-opcao-texto: #151780;
     --cor-grafico-barras: #1ABC9C;
     --cor-grafico-barras-selecionada: #1679AB;
 }
@@ -36,7 +36,6 @@
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
-    overflow: hidden;
 
     background-color: var(--cor-fundo-body);
     background-image: 
@@ -46,7 +45,6 @@ body {
     linear-gradient(-135deg, rgb(110, 191, 231) 6px, transparent 10px);
     background-size: 100px 100px;
     animation: blockchain 400s infinite linear;
-    overflow: hidden;
 }
 
 h2 {
@@ -136,12 +134,22 @@ h2 {
     padding: 20px 0;
     display: flex;
     overflow-y: auto;
-    width: 30%;
+    width: 50%;
     margin: auto;
     margin-top: 2%;
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
+}
+@media (max-width: 500px) {
+    .container {
+        width: 80%;
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        width: 80%;
+    }
 }
 
 .section {
@@ -154,7 +162,7 @@ h2 {
 }
 
 .section-titulo {
-    color: white;
+    color: #151780;
 }
 
 .section-descricao {
@@ -204,13 +212,14 @@ h3, p {
 .botaoVoltar{
     align-self: start;
     margin: 2% 6%;
+    margin-top: 0;
 }
 
 .btnVoltar{
     padding: 10px 15px;
     border: none;
     border-radius: 6px;
-    background-color: #125682;
+    background-color: #1091d2;
     color: white;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
