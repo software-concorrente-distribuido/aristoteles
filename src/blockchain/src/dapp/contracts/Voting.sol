@@ -13,7 +13,6 @@ contract Voting {
         uint startedAt;
         uint endedAt;
         bool isStarted;
-        uint[] districtIds;
         uint createdAt;
         uint updatedAt;
     }
@@ -32,15 +31,6 @@ contract Voting {
         string name;
         address delegate;
         bytes32 passwordHash;
-        uint districtId;
-        uint createdAt;
-        uint updatedAt;
-    }
-
-    struct District {
-        uint id;
-        string name;
-        string description;
         uint createdAt;
         uint updatedAt;
     }
@@ -58,9 +48,6 @@ contract Voting {
     mapping(uint => uint) private electionCandidatesCount;
     mapping(uint => mapping(uint => Voter)) private electionVoters;
     mapping(uint => uint) private electionVotersCount;
-    mapping(uint => mapping(uint => District)) private electionDistricts;
-    mapping(uint => uint) private electionDistrictsCount;
-    mapping(uint => District) private districts;
     mapping(uint => mapping(address => bool)) private hasVoted;
 
     event Voted(
@@ -100,18 +87,6 @@ contract Voting {
         return electionVoters[_electionId][_voterId];
     }
 
-    function getElectionDistrict(
-        uint _electionId,
-        uint _districtId
-    ) public view returns (District memory) {
-        require(_electionId < electionsCount, "Election does not exist");
-        require(
-            _districtId < electionDistrictsCount[_electionId],
-            "District does not exist"
-        );
-        return electionDistricts[_electionId][_districtId];
-    }
-
     function getElectionsCount() public view returns (uint) {
         return electionsCount;
     }
@@ -128,13 +103,6 @@ contract Voting {
     ) public view returns (uint) {
         require(_electionId < electionsCount, "Election does not exist");
         return electionVotersCount[_electionId];
-    }
-
-    function getElectionDistrictsCount(
-        uint _electionId
-    ) public view returns (uint) {
-        require(_electionId < electionsCount, "Election does not exist");
-        return electionDistrictsCount[_electionId];
     }
 
     function hasVotedInElection(
@@ -179,23 +147,6 @@ contract Voting {
             }
         }
         return candidateElections;
-    }
-
-    function getDistrictElections(
-        uint _districtId
-    ) public view returns (Election[] memory) {
-        Election[] memory districtElections = new Election[](electionsCount);
-        uint count = 0;
-        for (uint i = 0; i < electionsCount; i++) {
-            for (uint j = 0; j < elections[i].districtIds.length; j++) {
-                if (elections[i].districtIds[j] == _districtId) {
-                    districtElections[count] = elections[i];
-                    count++;
-                    break;
-                }
-            }
-        }
-        return districtElections;
     }
 
     function getStartedElections() public view returns (Election[] memory) {
@@ -273,8 +224,7 @@ contract Voting {
 
     function createElection(
         string memory _name,
-        string memory _description,
-        uint[] memory _districtIds
+        string memory _description
     ) public {
         elections[electionsCount] = Election(
             electionsCount,
@@ -285,7 +235,6 @@ contract Voting {
             0, // No predefined time to start
             MAX_TIMESTAMP, // No predefined time to end
             false,
-            _districtIds,
             block.timestamp,
             block.timestamp
         );
@@ -296,8 +245,7 @@ contract Voting {
         string memory _name,
         string memory _description,
         uint _startedAt,
-        uint _endedAt,
-        uint[] memory _districtIds
+        uint _endedAt
     ) public {
         elections[electionsCount] = Election(
             electionsCount,
@@ -308,7 +256,6 @@ contract Voting {
             _startedAt,
             _endedAt,
             false,
-            _districtIds,
             block.timestamp,
             block.timestamp
         );
@@ -496,7 +443,6 @@ contract Voting {
             _name,
             _delegate,
             keccak256(abi.encodePacked(_password)),
-            0,
             block.timestamp,
             block.timestamp
         );
@@ -506,8 +452,7 @@ contract Voting {
         uint _electionId,
         uint _voterId,
         string memory _name,
-        string memory _password,
-        uint _districtId
+        string memory _password
     ) public onlyAdmin(_electionId) {
         require(_electionId < electionsCount, "Election does not exist");
         require(
@@ -518,7 +463,6 @@ contract Voting {
         electionVoters[_electionId][_voterId].passwordHash = keccak256(
             abi.encodePacked(_password)
         );
-        electionVoters[_electionId][_voterId].districtId = _districtId;
         electionVoters[_electionId][_voterId].updatedAt = block.timestamp;
     }
 
@@ -549,25 +493,6 @@ contract Voting {
         emit Voted(
             msg.sender,
             elections[_electionId].ballotAddress,
-            block.timestamp
-        );
-    }
-
-    // District
-
-    function addDistrict(
-        uint _electionId,
-        string memory _name,
-        string memory _desc
-    ) public onlyAdmin(_electionId) {
-        require(_electionId < electionsCount, "Election does not exist");
-        uint districtId = electionDistrictsCount[_electionId];
-        electionDistrictsCount[_electionId]++;
-        electionDistricts[_electionId][districtId] = District(
-            districtId,
-            _name,
-            _desc,
-            block.timestamp,
             block.timestamp
         );
     }
