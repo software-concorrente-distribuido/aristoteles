@@ -73,8 +73,9 @@ namespace VoterAuthenticationAPI.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<byte[]>("PrivateKey")
-                        .HasColumnType("longblob");
+                    b.Property<string>("PrivateKey")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime(6)");

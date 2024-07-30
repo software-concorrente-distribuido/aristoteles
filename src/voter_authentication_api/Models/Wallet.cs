@@ -7,7 +7,7 @@ namespace VoterAuthenticationAPI.Models
         [Key, Required]
         public int Id { get; set; }
         public string Address { get; set; } = string.Empty;
-        public byte[]? PrivateKey { get; set; }
+        public string PrivateKey { get; set; } = string.Empty;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CreatedAt { get; set; }
     }

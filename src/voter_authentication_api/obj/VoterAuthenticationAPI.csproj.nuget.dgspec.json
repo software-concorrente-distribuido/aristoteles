@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
             "Microsoft.AspNet.WebApi.Core": {
               "target": "Package",
               "version": "[5.3.0, )"
@@ -92,7 +96,19 @@
               "target": "Package",
               "version": "[1.19.6, )"
             },
+            "Nethereum.Geth": {
+              "target": "Package",
+              "version": "[4.20.0, )"
+            },
+            "Nethereum.RPC": {
+              "target": "Package",
+              "version": "[4.20.0, )"
+            },
             "Nethereum.Signer": {
+              "target": "Package",
+              "version": "[4.20.0, )"
+            },
+            "Nethereum.Web3": {
               "target": "Package",
               "version": "[4.20.0, )"
             },
@@ -103,6 +119,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Net.WebHeaderCollection": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
