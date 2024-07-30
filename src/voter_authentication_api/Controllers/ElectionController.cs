@@ -77,26 +77,6 @@ public class ElectionController : ControllerBase
         }
     }
 
-    [HttpGet("getElectionDistrict")]
-    public async Task<ActionResult<District>> GetElectionDistrict(int electionId, int districtId)
-    {
-        try
-        {
-            var userResult = await _electionService.getElectionDistrict(electionId, districtId);
-
-            if (userResult != null)
-            {
-                return Ok(userResult);
-            }
-
-            return NotFound();
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex);
-        }
-    }
-
     [HttpGet("getVoterElections")]
     public async Task<ActionResult<List<Election>>> GetVoterElections(string voterAdress)
     {
@@ -130,41 +110,6 @@ public class ElectionController : ControllerBase
             }
 
             return NotFound();
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex);
-        }
-    }
-
-    [HttpGet("getDistrictElections")]
-    public async Task<ActionResult<List<Election>>> GetDistrictElections(int districtId)
-    {
-        try
-        {
-            var userResult = await _electionService.getDistrictElections(districtId);
-
-            if (userResult != null)
-            {
-                return Ok(userResult);
-            }
-
-            return NotFound();
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex);
-        }
-    }
-
-    [HttpPost("createElection")]
-    public async Task<ActionResult> CreateElection(string name, string description, List<int> districtIds)
-    {
-        try
-        {
-            await _electionService.createElection(name, description, districtIds);
-
-            return Ok();
         }
         catch (Exception ex)
         {

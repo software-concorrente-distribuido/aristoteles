@@ -19,11 +19,6 @@ namespace VoterAuthenticationAPI.Services
             return await Task.FromResult<Voter>(null);
         }
 
-        public async Task<District> getElectionDistrict(int electionId, int candidateId)
-        {
-            return await Task.FromResult<District>(null);
-        }
-
         public async Task<List<Election>> getVoterElections(string voterAdress)
         {
             return await Task.FromResult<List<Election>>(null);
@@ -34,12 +29,7 @@ namespace VoterAuthenticationAPI.Services
             return await Task.FromResult<List<Election>>(null);
         }
 
-        public async Task<List<Election>> getDistrictElections(int districtId)
-        {
-            return await Task.FromResult<List<Election>>(null);
-        }
-
-        public async Task createElection(string name, string description, List<int> districtIds)
+        public async Task createElection(string name, string description)
         {
             await Task.CompletedTask;
         }

@@ -10,7 +10,6 @@
         public DateTime StartedAt { get; set; }
         public DateTime EndedAt { get; set; }
         public bool IsStarted { get; set; }
-        public int[]? DistrictIds { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
