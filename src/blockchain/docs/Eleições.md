@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Este smart contract facilita a criação, gestão e execução de eleições. Ele permite o registro de candidatos, eleitores, e fornece funcionalidades para votação e gestão do período eleitoral.
+Este smart contract facilita a criação, gestão e execução de eleições. Ele permite o registro de candidatos e eleitores, e fornece funcionalidades para votação e gestão do período eleitoral.
 
 ## Detalhes do Contrato
 
@@ -13,7 +13,7 @@ Este smart contract facilita a criação, gestão e execução de eleições. El
 
 ### Versão do Solidity
 ```solidity
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.19;
 ```
 
 ### Contrato: `Voting`
@@ -158,7 +158,7 @@ O mapeamento `electionCandidatesCount` armazena o número de candidatos para cad
 }
 ```
 
-## Election Voters
+#### Election Voters
 
 O mapeamento `electionVoters` armazena os eleitores de cada eleição. É um mapeamento aninhado, onde o primeiro nível é o ID da eleição e o segundo nível é o ID do eleitor. Cada eleitor possui um `id`, `name`, `delegate`, `passwordHash`, `createdAt` e `updatedAt`.
 
@@ -214,10 +214,6 @@ O mapeamento `hasVoted` armazena se um eleitor já votou em uma eleição espec�
 }
 ```
 
-Este mapeamento indica que na eleição com ID 1, o eleitor com o endereço `0xVoterAddress1` já votou, enquanto o eleitor com o endereço `
-
-0xVoterAddress2` ainda não votou.
-
 ### Funções
 
 #### Públicas
@@ -233,11 +229,10 @@ Este mapeamento indica que na eleição com ID 1, o eleitor com o endereço `0xV
 
 #### Interfaces 
 
-- `getVoterElections(address _voterAddress)`: Retorna um array de estruturas Election para as eleições em que um eleitor específico está registrado como delegado.
-- `getCandidateElections(address _delegate)`: Retorna um array de estruturas Election para as eleições em que um candidato específico está registrado como delegado.
-- `getStartedElections()`: Retorna um array de estruturas Election para as eleições que estão em andamento.
-- `getElectionsWithResults()`: Retorna um array de estruturas ElectionResults para as eleições que já terminaram, incluindo os resultados dos candidatos.
-
+- `getVoterElections(address _voterAddress)`: Retorna um array de estruturas `Election` para as eleições em que um eleitor específico está registrado como delegado.
+- `getCandidateElections(address _delegate)`: Retorna um array de estruturas `Election` para as eleições em que um candidato específico está registrado como delegado.
+- `getStartedElections()`: Retorna um array de estruturas `Election` para as eleições que estão em andamento.
+- `getElectionsWithResults()`: Retorna um array de estruturas `ElectionResults` para as eleições que já terminaram, incluindo os resultados dos candidatos.
 
 #### Gestão de Eleição
 
@@ -247,20 +242,24 @@ Este mapeamento indica que na eleição com ID 1, o eleitor com o endereço `0xV
 - `endElection(uint _electionId, string memory _desc)`: Encerra a eleição e atualiza sua descrição. Somente o administrador pode chamar.
 - `getElectionPeriod(uint _electionId)`: Retorna os períodos de início e término da eleição.
 - `extendElectionPeriod(uint _electionId, uint time)`: Estende o período da eleição por um tempo especificado. Somente o administrador pode chamar.
-- `setElectionPeriod(uint _electionId, uint _startPeriod, uint _endPeriod)`: Define os períodos de início e término da eleição. Somente o administrador pode chamar.
-- `endElections()`: Encerra todas as eleições em andamento cujo tempo de término já passou.
+- `setElectionPeriod(uint _electionId, uint _startPeriod, uint _endPeriod)`: Define o período da eleição. Somente o administrador pode chamar.
 
 #### Gestão de Candidatos
 
-- `addCandidate(uint _electionId, string memory _name, address _delegate)`: Adiciona um candidato à eleição. Somente o administrador pode chamar.
-- `removeCandidateElection(uint _electionId, uint _candidateId)`: Remove um candidato da eleição. Somente o administrador pode chamar.
-- `updateCandidate(uint _electionId, uint _candidateId, string memory _name)`: Atualiza os detalhes de um candidato. Somente o administrador pode chamar.
-- `withdrawFromElection(uint _electionId, uint _candidateId)`: Permite que um candidato se retire da eleição. Somente o candidato pode chamar.
+- `addCandidate(uint
+
+ _electionId, uint _candidateId, string memory _name, address _delegate)`: Adiciona um novo candidato a uma eleição existente. Somente o administrador pode chamar.
+- `removeCandidate(uint _electionId, uint _candidateId)`: Remove um candidato de uma eleição. Somente o administrador pode chamar.
+- `vote(uint _electionId, uint _candidateId)`: Permite que um eleitor vote em um candidato específico.
 
 #### Gestão de Eleitores
 
-- `addVoter(uint _electionId, string memory _name, string memory _password, address _delegate)`: Adiciona um eleitor à eleição. Somente o administrador pode chamar.
-- `castVote(uint _electionId, uint _candidateId)`: Permite que um eleitor vote em um candidato em uma eleição.
+- `addVoter(uint _electionId, uint _voterId, string memory _name, address _delegate, bytes32 _passwordHash)`: Adiciona um novo eleitor a uma eleição existente. Somente o administrador pode chamar.
+- `removeVoter(uint _electionId, uint _voterId)`: Remove um eleitor de uma eleição. Somente o administrador pode chamar.
+
+---
+
+Espero que essa versão da documentação atenda às suas necessidades! Se precisar de mais alguma coisa, é só avisar.
 
 ### Modificadores
 

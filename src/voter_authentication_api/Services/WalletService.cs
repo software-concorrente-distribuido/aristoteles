@@ -12,18 +12,19 @@ using Nethereum.Web3.Accounts.Managed;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Nethereum.Web3.Accounts;
 using Nethereum.RPC.Eth;
+using Org.BouncyCastle.Utilities.Encoders;
 
 namespace VoterAuthenticationAPI.Common
 {
-    public class WalletService  
+    public class WalletService
     {
         private static readonly string url = "http://127.0.0.1:8545";
-        private static readonly string contractAddress = "0x15c7E86f71770AF7937C9CAEE849315A4031911C";
+        private static readonly string contractAddress = "0xfcc6285764F77c1671a2DdB177587d893c44EF0D";
         private static readonly decimal DEFAULT_AMOUNT_FUND = 0.5m;
         private static readonly string[] funderAddresses = new string[]
         {
-            "0x5322a18E39CD52a62d102e25556A8EF0655De44E",
-            "0x50d543E92F381a855B0560f818A59eB14d12fEfC"
+            "0x49aD6eD823fB54A66997Ba26c73a1ebCc90C7b82",
+            "0x35b30d66C742b64a8cE690E6824De0aE25C1EDCA"
         };
         private static string password = "admin";
         private static Web3 web3 = new Web3(url);
@@ -39,7 +40,7 @@ namespace VoterAuthenticationAPI.Common
 
                 var balance = await web3.Eth.GetBalance.SendRequestAsync(newWalletAddress);
 
-                var contractAbi = File.ReadAllText("C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\blockchain\\src\\dapp\\build\\contracts_Voting_sol_Voting.abi");
+                var contractAbi = File.ReadAllText("/home/vitor/dev/aristoteles/src/blockchain/src/dapp/build/contracts_Voting_sol_Voting.abi");
                 var contract = web3.Eth.GetContract(contractAbi, contractAddress);
 
                 return new Wallet()
@@ -103,7 +104,7 @@ namespace VoterAuthenticationAPI.Common
                         From = address
                     };
 
-                    var txnHash = await web3WithAccount.Eth.Transactions.SendTransaction.SendRequestAsync(transactionInput);
+                    // var txnHash = await web3WithAccount.Eth.Transactions.SendTransaction.SendRequestAsync(transactionInput);
                 }
 
                 return (newWalletAddress, newWalletPrivateKey);

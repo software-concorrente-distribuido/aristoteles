@@ -225,7 +225,7 @@ contract Voting {
     function createElection(
         string memory _name,
         string memory _description
-    ) public {
+    ) public returns (uint) {
         elections[electionsCount] = Election(
             electionsCount,
             _name,
@@ -239,6 +239,7 @@ contract Voting {
             block.timestamp
         );
         electionsCount++;
+        return electionsCount
     }
 
     function createElection(
