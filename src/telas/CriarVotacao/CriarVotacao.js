@@ -1,7 +1,10 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuIcon = document.querySelector('.menu i');
     const menuContent = document.querySelector('.menu-content');
     const addButton = document.querySelector('.add-btn');
+    const emailInput = document.querySelector('#novo-participante');
+    const emailContainer = document.querySelector('#email-container');
 
     const validateEmail = (email) => {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -55,12 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-        window.location.href = '../Login/index.html';
-    } else {
-        loadCandidatos(token);
-    }
+    // const token = localStorage.getItem('authToken');
+    // if (!token) {
+    //     window.location.href = '../Login/index.html';
+    // } else {
+    //     loadCandidatos(token);
+    // }
 
     function loadCandidatos(token) {
         const url = 'https://localhost:44359/api/Candidato/get-cadastro-candidatos';
