@@ -1,47 +1,40 @@
-﻿using VoterAuthenticationAPI.Models;
+﻿using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Models.DTOs;
 
 namespace VoterAuthenticationAPI.Services
 {
     public class ElectionService
     {
-        public async Task<Election> getElection(int electionId)
-        {
-            return await Task.FromResult<Election>(null);
-        }
+        private readonly BlockChainConfig _blockChainConfig;
+        private readonly HttpClient _httpClient;
 
-        public async Task<Candidato> getElectionCandidate(int electionId, int candidateId)
+        public ElectionService(HttpClient httpClient, BlockChainConfig blockChainConfig)
         {
-            return await Task.FromResult<Candidato>(null);
+            _httpClient = httpClient;
+            _blockChainConfig = blockChainConfig;
         }
-
-        public async Task<Voter> getElectionVoter(int electionId, int candidateId)
+        public async Task createElection(string nome, string descricao)
         {
-            return await Task.FromResult<Voter>(null);
-        }
+            var requestBody = new
+            {
+                Nome = nome,
+                Descricao = descricao
+            };
 
-        public async Task<List<Election>> getVoterElections(string voterAdress)
-        {
-            return await Task.FromResult<List<Election>>(null);
-        }
+            var jsonRequest = JsonSerializer.Serialize(requestBody);
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
-        public async Task<List<Election>> getCandidateElections(string candidateAdress)
-        {
-            return await Task.FromResult<List<Election>>(null);
-        }
+            var response = await _httpClient.PostAsync(_blockChainConfig.Url, content);
 
-        public async Task createElection(string name, string description)
-        {
-            await Task.CompletedTask;
-        }
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception($"Error calling blockchain API: {response.ReasonPhrase}");
+            }
 
-        public async Task startElection(int electionId)
-        {
-            await Task.CompletedTask;
-        }
-
-        public async Task endElection(int electionId, string descricao)
-        {
-            await Task.CompletedTask;
+            var responseBody = await response.Content.ReadAsStringAsync();
         }
     }
 }

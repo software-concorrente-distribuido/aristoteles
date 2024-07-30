@@ -78,7 +78,7 @@ namespace VoterAuthenticationAPI.Common
 
                 foreach (var address in _blockChainConfig.FunderAddresses)
                 {
-                    var unlockResult = await unlockAccountMethod.SendRequestAsync(address, _blockChainConfig.Password, 300);
+                    await unlockAccountMethod.SendRequestAsync(address, _blockChainConfig.Password, 300);
                 }
 
                 var gasPrice = await _web3.Eth.GasPrice.SendRequestAsync();
