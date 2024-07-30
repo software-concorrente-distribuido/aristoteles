@@ -100,9 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const opcoesList = document.getElementById('opcoes-list');
     const form = document.querySelector('form');
-    const saveButton = document.querySelector('.save-btn');
-    const emailInput = document.getElementById('novo-participante');
-    const emailContainer = document.getElementById('email-container');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();

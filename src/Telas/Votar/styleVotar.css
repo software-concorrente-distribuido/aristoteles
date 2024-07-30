@@ -1,5 +1,5 @@
 :root {
-    --cor-fundo-body: #F8F8F8;
+    --cor-fundo-body: pink;
     --cor-fundo-menu: #2C3E50;
     --cor-texto-menu: #FFFFFF;
     --cor-texto-titulo: #102C57;
@@ -32,12 +32,12 @@ body {
     font-family: 'Courier New', Courier, monospace;
     overflow: hidden;
 
-    background-color: pink;
+    background-color: var(--cor-fundo-body);
     background-image: 
-        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+        linear-gradient(45deg, rgb(157, 22, 230) 5%, transparent 10%),
+        linear-gradient(-45deg, rgb(220, 80, 255) 5%, transparent 10%);
     background-size: 100px 100px;
-    animation: blockchain 20s infinite linear;
+    animation: blockchain 60s infinite linear;
     overflow: hidden;
 }
 

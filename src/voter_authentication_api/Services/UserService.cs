@@ -9,10 +9,12 @@ namespace VoterAuthenticationAPI.Services
     public class UserService
     {
         private readonly DataContext _dataContext;
+        private readonly WalletService _walletContext;
 
-        public UserService(DataContext dataContext)
+        public UserService(DataContext dataContext, WalletService walletContext)
         {
             _dataContext = dataContext;
+            _walletContext = walletContext;
         }
 
         public async Task<List<Candidato>?> BuscaCandidatosUsuario(string? nome)
@@ -71,7 +73,7 @@ namespace VoterAuthenticationAPI.Services
             string? token = null;
 
 
-            Wallet wallet = WalletService.GenerateWallet();
+            Wallet wallet = await _walletContext.GenerateWalletAsync();
 
             var user = new User()
             {

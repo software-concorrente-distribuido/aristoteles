@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
 using VoterAuthenticationAPI.Services;
 
@@ -16,6 +17,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CandidatoService>();
 builder.Services.AddScoped<ElectionService>();
 builder.Services.AddScoped<VoterService>();
+builder.Services.AddScoped<WalletService>();
 
 builder.Services.AddCors(options =>
 {

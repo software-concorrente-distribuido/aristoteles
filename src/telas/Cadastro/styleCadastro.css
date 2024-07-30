@@ -32,12 +32,14 @@ body {
 
     background-color: var(--cor-fundo-body);
     background-image: 
-        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+        linear-gradient(45deg, rgb(157, 22, 230) 5%, transparent 10%),
+        linear-gradient(-45deg, rgb(220, 80, 255) 5%, transparent 10%);
     background-size: 100px 100px;
-    animation: blockchain 20s infinite linear;
+    animation: blockchain 60s infinite linear;
     overflow: hidden;
 }
+
+
 
 .login-container, .cadastro-container {
     background-color: var(--cor-fundo-container);
@@ -231,15 +233,4 @@ body {
 .fade-in {
     display: block;
     opacity: 1;
-}
-
-.input-distrito{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 18px;
-}
-
-.input-distrito div{
-    display: flex;
 }

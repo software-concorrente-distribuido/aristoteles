@@ -23,14 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const distrito = document.querySelector('input[name="distrito"]:checked');
-        const distritoValue = distrito ? distrito.value : null;
-
-        if (!distritoValue) {
-            alert('Por favor, selecione um distrito.');
-            return;
-        }
-
         const requestBody = {
             Name: nome,
             Email: email,
