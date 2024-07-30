@@ -1,12 +1,12 @@
 :root {
-    --cor-fundo-body: pink;
+    --cor-fundo-body: white;
     --cor-fundo-rgb: 255, 255, 255;
     --cor-fundo-container: #FFFFFF;
     --cor-texto-titulo: #102C57;
     --cor-texto-label: #12648d;
     --cor-borda-input: #CCC;
     --cor-borda-input-focus: #1679AB;
-    --cor-sombra-box: rgba(0, 0, 0, 0.1);
+    --cor-sombra-box: rgba(49, 114, 198, 0.9);
     --cor-botao-fundo: #1679AB;
     --cor-botao-texto: white;
     --cor-botao-hover: #125682;
@@ -32,18 +32,20 @@ body {
 
     background-color: var(--cor-fundo-body);
     background-image: 
-        linear-gradient(45deg, rgb(157, 22, 230) 5%, transparent 10%),
-        linear-gradient(-45deg, rgb(220, 80, 255) 5%, transparent 10%);
+        linear-gradient(45deg, rgb(110, 191, 231) 10%, transparent 1%),
+        linear-gradient(-45deg, rgb(25, 41, 191) 10%, transparent 1%),
+        linear-gradient(135deg, rgb(25, 41, 191) 10%, transparent 1%),
+        linear-gradient(-135deg, rgb(110, 191, 231) 10%, transparent 1%);
     background-size: 100px 100px;
-    animation: blockchain 60s infinite linear;
+    animation: blockchain 150s infinite linear;
     overflow: hidden;
 }
 
 .login-container {
-    background-color: rgba(var(--cor-fundo-rgb), 0.5);
+    background-color: rgba(var(--cor-fundo-rgb), 0.93);
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 0 20px var(--cor-sombra-box);
+    box-shadow: 0 0 6px var(--cor-sombra-box);
     text-align: center;
     width: 300px;
     max-width: 90%;
