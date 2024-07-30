@@ -32,18 +32,19 @@ body {
 
     background-color: var(--cor-fundo-body);
     background-image: 
-        linear-gradient(45deg, rgb(110, 191, 231) 10%, transparent 1%),
-        linear-gradient(-45deg, rgb(25, 41, 191) 10%, transparent 1%),
-        linear-gradient(135deg, rgb(25, 41, 191) 10%, transparent 1%),
-        linear-gradient(-135deg, rgb(110, 191, 231) 10%, transparent 1%);
+    linear-gradient(45deg, rgb(110, 191, 231) 6px, transparent 10px),
+    linear-gradient(-45deg, rgb(25, 41, 191) 6px, transparent 10px),
+    linear-gradient(135deg, rgb(25, 41, 191) 6px, transparent 10px),
+    linear-gradient(-135deg, rgb(110, 191, 231) 6px, transparent 10px);
     background-size: 100px 100px;
-    animation: blockchain 150s infinite linear;
+    animation: blockchain 400s infinite linear;
     overflow: hidden;
 }
 
 .login-container {
     background-color: rgba(var(--cor-fundo-rgb), 0.93);
     padding: 40px;
+    padding-top: 20px;
     border-radius: 8px;
     box-shadow: 0 0 6px var(--cor-sombra-box);
     text-align: center;
@@ -64,7 +65,7 @@ body {
 .input-container {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .input-container label {
