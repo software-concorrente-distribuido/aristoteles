@@ -239,7 +239,7 @@ contract Voting {
             block.timestamp
         );
         electionsCount++;
-        return electionsCount
+        return electionsCount;
     }
 
     function createElection(
