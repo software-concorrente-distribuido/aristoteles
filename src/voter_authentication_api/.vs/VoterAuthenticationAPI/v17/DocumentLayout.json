@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\leona\\Desktop\\Aristoteles - final\\aristoteles\\src\\voter_authentication_api\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles\\aristoteles\\src\\voter_authentication_api\\models\\dtos\\blockchainconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:models\\dtos\\blockchainconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|c:\\users\\leona\\desktop\\aristoteles\\aristoteles\\src\\voter_authentication_api\\services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A25BEEE7-76C2-4ECE-8358-BEB9CF846BA0}|VoterAuthenticationAPI.csproj|solutionrelative:services\\walletservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,6 +75,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WalletService.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\Services\\WalletService.cs",
+              "RelativeDocumentMoniker": "Services\\WalletService.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\Services\\WalletService.cs",
+              "RelativeToolTip": "Services\\WalletService.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAowCUAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T20:24:10.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BlockChainConfig.cs",
+              "DocumentMoniker": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\Models\\DTOs\\BlockChainConfig.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\BlockChainConfig.cs",
+              "ToolTip": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\Models\\DTOs\\BlockChainConfig.cs",
+              "RelativeToolTip": "Models\\DTOs\\BlockChainConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T20:18:24.198Z",
+              "EditorCaption": ""
             }
           ]
         }

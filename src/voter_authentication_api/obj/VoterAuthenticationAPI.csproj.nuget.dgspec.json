@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "/home/vitor/dev/aristoteles/src/voter_authentication_api/VoterAuthenticationAPI.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "/home/vitor/dev/aristoteles/src/voter_authentication_api/VoterAuthenticationAPI.csproj",
         "packagesPath": "/home/vitor/.nuget/packages/",
         "outputPath": "/home/vitor/dev/aristoteles/src/voter_authentication_api/obj/",
+=======
+    "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+        "projectName": "VoterAuthenticationAPI",
+        "projectPath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\obj\\",
+>>>>>>> 43187ce2a356e718326f0c641c90a6ff16dc10cb
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vitor/.nuget/NuGet/NuGet.Config"

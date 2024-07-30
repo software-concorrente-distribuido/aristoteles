@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Data;
+using VoterAuthenticationAPI.Models.DTOs;
 using VoterAuthenticationAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddScoped<CandidatoService>();
 builder.Services.AddScoped<ElectionService>();
 builder.Services.AddScoped<VoterService>();
 builder.Services.AddScoped<WalletService>();
+builder.Services.AddScoped<BlockChainConfig>();
 
 builder.Services.AddCors(options =>
 {

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "3jdupqQ+REoz/QKty9iiImZVkXTKPCaNZw61dO9y5GbcQ+1E+0ZzyIXwsiD3ojt/4zY8fyYA3iQ/Ig3WQ8Udvg==",
   "success": true,
   "projectFilePath": "/home/vitor/dev/aristoteles/src/voter_authentication_api/VoterAuthenticationAPI.csproj",
+=======
+  "dgSpecHash": "XNUlIL0+iNMT3NT3gER0WIaagtHXrPwsYcOZfk9oiyj+SBS6emhpw9q9DwmwZyLqarDiaAPLnE/BjI9ztI+Q8w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\voter_authentication_api\\VoterAuthenticationAPI.csproj",
+>>>>>>> 43187ce2a356e718326f0c641c90a6ff16dc10cb
   "expectedPackageFiles": [
     "/home/vitor/.nuget/packages/adraffy.ensnormalize/0.1.5/adraffy.ensnormalize.0.1.5.nupkg.sha512",
     "/home/vitor/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
