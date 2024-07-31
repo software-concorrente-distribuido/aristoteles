@@ -1,6 +1,6 @@
 :root {
-    --cor-fundo-body: pink;
-    --cor-fundo-menu: #2C3E50;
+    --cor-fundo-body: white;
+    --cor-fundo-menu: rgb(110, 191, 231);
     --cor-texto-menu: #FFFFFF;
     --cor-texto-titulo: #102C57;
     --cor-texto: #333;
@@ -11,8 +11,9 @@
     --cor-status-realizado: #2ECC71;
     --cor-status-nao-votado: #E74C3C;
     --cor-borda-card: #2C3E50;
-    --cor-container-fundo: #1C2C40;
+    --cor-container-fundo: white;
     --cor-section-titulo-fundo: #36475B;
+    --cor-section-fundo: rgb(110, 191, 231);
     --cor-section-descricao-fundo: #283546;
     --cor-section-prazo-fundo: #3D4B5C;
     --cor-section-opcoes-fundo: #283546;
@@ -129,11 +130,17 @@ body {
     width: 30%;
     margin: auto;
     margin-top: 1%;
+    box-shadow: 0 0 6px rgb(43, 121, 209);
     border-radius: 10px;
     height: auto;
     flex-direction: column;
     align-items: center;
     position: relative;
+}
+
+h2 {
+    color: var(--cor-texto-titulo);
+    text-align: center;
 }
 
 .section {
@@ -142,27 +149,10 @@ body {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
+    background-color: var(--cor-section-fundo);
 }
 
-.section-titulo {
-    background-color: var(--cor-section-titulo-fundo);
-    color: white;
-}
 
-.section-descricao {
-    background-color: var(--cor-section-descricao-fundo);
-    color: white;
-}
-
-.section-prazo {
-    background-color: var(--cor-section-prazo-fundo);
-    color: white;
-}
-
-.section-opcoes {
-    background-color: var(--cor-section-opcoes-fundo);
-    color: white;
-}
 
 h3, p {
     margin: 0 0 10px 0;
