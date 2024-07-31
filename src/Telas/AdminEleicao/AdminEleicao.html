@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Votação</title>
-    <link rel="stylesheet" href="styleVisualizarVotacao.css">
+    <title>Nova Votação</title>
+    <link rel="stylesheet" href="styleAdminEleicao.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="icon" href="../Imagens/iconeBlockChain2.png" type="image/x-icon"> 
 </head>
@@ -22,21 +22,20 @@
             </div>
 
             <div class="user-info">
-
                 <a href="#" id="logout" class="logout"><i class="fas fa-sign-out-alt"></i> SAIR</a>
-
             </div>
         </div>
     </header>
+
     <main>
-        <h2>Visualizar Votação</h2>
+        <div class="divTitulo">
+            <h2>Administrar Eleição</h2>
+        </div>
         <div class="container">
-            <div class="botoes-superiores">
-                <a class="botaoVoltar" href="../Votacoes/Votacoes.html">
-                    <button class="btnVoltar"><i style="margin-right: 5px;" class="fa-solid fa-chevron-left"></i>Voltar</button>
-                </a>
-                <button class="botaoStatus">Aberta</button> 
-            </div>
+            <a class="botaoVoltar" href="../VotacoesAdmin/VotacoesAdmin.html">
+
+                <button class="btnVoltar"><i style="margin-right: 5px;" class="fa-solid fa-chevron-left"></i>Voltar</button>
+            </a>
             <div class="section section-titulo">
                 <h3>Título</h3>
             </div>
@@ -45,33 +44,31 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam qui nesciunt eius molestias dignissimos ipsa quia aperiam iure. Dolores tempora deleniti ut rerum ex eveniet doloremque dolor nostrum neque nam.</p>
             </div>
             <div class="section section-opcoes">
-                <h3>Resultado</h3>
+                <h3>Opções</h3>
                 <div class="opcoes">
                     <div class="opcao">
-                        <span>Candidato 01</span>
-                        <div class="barra">
-                            <div class="grafico-barra" style="width: 50%;"></div>
-                            <span>50%</span>
-                        </div>
+                        <span>Opção 01</span>
+                        <div class="grafico-barra" style="width: 50%;"></div>
+                        <span>50%</span>
+                    </div>
+                    <div class="opcao opcao-selecionada">
+                        <span>Opção 02</span>
+                        <div class="grafico-barra" style="width: 30%;"></div>
+                        <span>30%</span>
                     </div>
                     <div class="opcao">
-                        <span>Candidato 02</span>
-                        <div class="barra">
-                            <div class="grafico-barra" style="width: 30%;"></div>
-                            <span>30%</span>
-                        </div>
-                    </div>
-                    <div class="opcao">
-                        <span>Candidato 03</span>
-                        <div class="barra">
-                            <div class="grafico-barra" style="width: 20%;"></div>
-                            <span>20%</span>
-                        </div>
+                        <span>Opção 03</span>
+                        <div class="grafico-barra" style="width: 20%;"></div>
+                        <span>20%</span>
                     </div>
                 </div>
             </div>
+            <div class="section-botoes">
+                <button class="btnIniciar">Iniciar Eleição</button>
+            </div>            
         </div>
     </main>
-    <script src="VisualizarVotacao.js"></script>
+
+    <script src="AdminEleicao.js"></script>
 </body>
 </html>

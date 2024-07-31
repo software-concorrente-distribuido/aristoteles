@@ -1,53 +1,25 @@
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.querySelector('.menu i');
     const menuContent = document.querySelector('.menu-content');
-    const addButton = document.querySelector('.add-btn');
-    const emailInput = document.querySelector('#novo-participante');
-    const emailContainer = document.querySelector('#email-container');
 
-    const validateEmail = (email) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    const addEmailBadge = (email) => {
-        const badge = document.createElement('div');
-        badge.classList.add('email-badge');
-        badge.innerHTML = `
-            ${email} 
-            <i class="fas fa-times"></i>
-        `;
-
-        badge.querySelector('i').addEventListener('click', () => {
-            emailContainer.removeChild(badge);
-        });
-
-        emailContainer.appendChild(badge);
-    }
-
-    addButton.addEventListener('click', () => {
-        const email = emailInput.value.trim();
-        if (validateEmail(email)) {
-            addEmailBadge(email);
-            emailInput.value = '';
-        } else {
-            alert('Por favor, insira um e-mail válido.');
-        }
-    });
-
-    menuIcon.addEventListener('click', function () {
+    menuIcon.addEventListener('click', function() {
         menuContent.classList.toggle('show');
+        
         const isVisible = menuContent.classList.contains('show');
+        
         menuContent.style.maxHeight = isVisible ? menuContent.scrollHeight + "px" : "0";
     });
 
-    document.addEventListener('click', function (event) {
+    document.addEventListener('click', function(event) {
         if (!menuIcon.contains(event.target) && !menuContent.contains(event.target)) {
             menuContent.classList.remove('show');
             menuContent.style.maxHeight = "0";
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const emailContainer = document.querySelector('#email-container');
 
     const logoutLink = document.getElementById('logout');
     if (logoutLink) {
@@ -83,7 +55,23 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(candidatos => {
                 const opcoesList = document.getElementById('opcoes-list');
+                const emailList = document.getElementById('email-container');
                 opcoesList.innerHTML = '';
+
+                candidatos.sort((a, b) => a.email.localeCompare(b.email));
+
+                candidatos.forEach(candidato => {
+                    const label = document.createElement('label');
+                    label.classList.add('radio-container');
+                    label.innerHTML = `
+                ${candidato.email}
+                <input type="checkbox" name="opcao" value="${candidato.id}">
+                <span class="checkmark"></span>
+                `;
+                    emailList.appendChild(label);
+                });
+
+                candidatos.sort((a, b) => a.name.localeCompare(b.name));
 
                 candidatos.forEach(candidato => {
                     const label = document.createElement('label');
@@ -92,9 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${candidato.name} - ${candidato.email}
                 <input type="checkbox" name="opcao" value="${candidato.id}">
                 <span class="checkmark"></span>
-            `;
+                `;
                     opcoesList.appendChild(label);
                 });
+
             })
             .catch(error => {
                 console.error('Erro:', error.message);

@@ -56,11 +56,33 @@ contract Voting {
         uint timestamp
     );
 
+    event ElectionCreated(uint electionId);
+
     function getElection(
         uint _electionId
     ) public view returns (Election memory) {
         require(_electionId < electionsCount, "Election does not exist");
         return elections[_electionId];
+    }
+
+    function getAdminElections(
+        address _adminAddress
+    ) public view returns (Election[] memory) {
+        uint count = 0;
+        for (uint i = 0; i < electionsCount; i++) {
+            if (elections[i].admin == _adminAddress) {
+                count++;
+            }
+        }
+        Election[] memory adminElections = new Election[](count);
+        uint index = 0;
+        for (uint i = 0; i < electionsCount; i++) {
+            if (elections[i].admin == _adminAddress) {
+                adminElections[index] = elections[i];
+                index++;
+            }
+        }
+        return adminElections;
     }
 
     function getElectionCandidate(
@@ -238,6 +260,7 @@ contract Voting {
             block.timestamp,
             block.timestamp
         );
+        emit ElectionCreated(electionsCount);
         electionsCount++;
     }
 
@@ -259,6 +282,7 @@ contract Voting {
             block.timestamp,
             block.timestamp
         );
+        emit ElectionCreated(electionsCount);
         electionsCount++;
     }
 
