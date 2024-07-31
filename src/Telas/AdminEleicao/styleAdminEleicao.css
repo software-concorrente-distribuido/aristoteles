@@ -137,6 +137,8 @@ h2 {
     overflow-y: auto;
     width: 30%;
     margin: auto;
+    background-color: white;
+    box-shadow: 0 0 6px rgb(13, 129, 201);
     margin-top: 2%;
     border-radius: 10px;
     flex-direction: column;
@@ -153,7 +155,7 @@ h2 {
 }
 
 .section-titulo {
-    color: white;
+    color: var(--cor-texto-titulo);
 }
 
 .section-descricao {
