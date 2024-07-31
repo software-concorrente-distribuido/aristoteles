@@ -1,15 +1,18 @@
-# Blockchain Deploy Instructions
+# Blockchain Deployment Instructions
 
 ## Prerequisites
 
+**Note:** To run the `contract_example` notebook, you must install Python and its dependencies. For testing the app and API, installing Node.js and Docker is sufficient.
+
 Ensure you have the following installed:
-- **Python**: Required for running the Jupyter notebook example.
+
+- **Python** (Optional): Required for running the Jupyter notebook example.
 - **Docker**: Required for containerizing and running the blockchain environment.
 - **Node.js**: Required for managing dependencies and running scripts.
 
 ## Setting Up the Environment
 
-### 1. **Python Environment**
+### 1. Python Environment (Optional)
 
 1. **Create a Virtual Environment:**
    ```bash
@@ -18,11 +21,11 @@ Ensure you have the following installed:
 
 2. **Activate the Virtual Environment:**
    
-   On Windows:
+   - **On Windows:**
      ```bash
      .venv\Scripts\activate
      ```
-   On macOS/Linux:
+   - **On macOS/Linux:**
      ```bash
      source .venv/bin/activate
      ```
@@ -33,22 +36,29 @@ Ensure you have the following installed:
    pip install -r requirements.txt
    ```
 
-### 2. **Node.js Environment**
-   Install all `package.json` required dependencies using:
+### 2. Node.js Environment
+
+1. **Install Dependencies:**
    ```bash
    npm install
    ```
 
-### 3. **Deploy the Smart Contract**
+### 3. Deploy the Smart Contract
 
 1. **Run the Deployment Script:**
-   ```bash
-   sh deploy.sh
-   ```
 
-   This script will deploy your smart contract to the blockchain. It takes a while, so please be patient. And get note of the outputs of the script.
+   - **On Windows:**
+     ```bat
+     deploy.bat
+     ```
+   - **On Linux:**
+     ```bash
+     sh deploy.sh
+     ```
 
-## Running the Example
+   This script deploys your smart contract to the blockchain. The process may take some time, so please be patient. Take note of the script’s output.
+
+## Running the Example (Optional)
 
 1. **Start Jupyter Notebook:**
    ```bash
@@ -65,7 +75,7 @@ Ensure you have the following installed:
    npx hardhat test
    ```
 
-   This command runs the test suite to ensure everything is functioning as expected.
+   This command runs the test suite to ensure everything is functioning as expected. You won't have to manually compile the contract with `npx solc` for that.
 
 ## Modifying Contracts
 
@@ -75,9 +85,25 @@ Ensure you have the following installed:
    npx solc --optimize --bin --abi ./contracts/Voting.sol -o build/
    ```
 
-   This command will compile the Solidity contract and output the binary and ABI files to the `build/` directory.
+   This command compiles the Solidity contract and outputs the binary and ABI files to the `build/` directory.
+
+## Cleanup
+
+1. **Stop and Remove Docker Containers, Networks, Volumes, and Orphans:**
+   ```bash
+   docker compose down --volumes --remove-orphans
+   ```
+
+2. **Remove Docker Images:**
+   To remove Docker images associated with your project, use:
+   ```bash
+   docker image prune -a
+   ```
+
+   This command removes all unused Docker images. Ensure that you are not removing images that are still needed.
 
 ## Notes
 
 - Ensure Docker is running and properly configured before deploying the smart contract.
 - If you encounter issues, check the logs and configurations in Docker and Node.js.
+- For allocating more miner nodes in the deployment, check the notes in the `docker-compose.yaml` file.

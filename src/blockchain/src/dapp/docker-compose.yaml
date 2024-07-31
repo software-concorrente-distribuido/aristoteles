@@ -1,3 +1,6 @@
+# This file allocates the bootnode responsible to create the RPC communication interface and 4 other miners (5 nodes).
+# If you wish to add more nodes, just follow the naming strategy of both the services and the hostnames.
+
 services:
   mybootnode:
     hostname: mybootnode
