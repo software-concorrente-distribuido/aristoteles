@@ -9,6 +9,14 @@ namespace VoterAuthenticationAPI.Common
 {
     public class AuthService
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private static readonly string SecretKey = "AS&(%)D$*N>:*&sdBN%&*danmY(O&OIAsd*&q976fas87hso";
+
+        public AuthService(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
         public static string Encrypt(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
@@ -33,13 +41,45 @@ namespace VoterAuthenticationAPI.Common
                 ),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes("AS&(%)D$*N>:*&sdBN%&*danmY(O&OIAsd*&q976fas87hso")),
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey)),
                     SecurityAlgorithms.HmacSha256Signature
                 )
             };
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken = tokenHandler.CreateToken(tokenDescription);
             return tokenHandler.WriteToken(securityToken);
+        }
+
+        public string GetUserIdFromToken()
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(SecretKey);
+            var token = _httpContextAccessor?.HttpContext?.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true
+                }, out SecurityToken validatedToken);
+
+                var userIdClaim = principal.Claims.FirstOrDefault(c => c.Type == "userId");
+
+                if (userIdClaim == null)
+                {
+                    throw new Exception("Não foi possível acessar.");
+                }
+
+                return userIdClaim.Value;
+            }
+            catch
+            {
+                throw new Exception("Não foi possível acessar.");
+            }
         }
 
         public static async Task<bool> SendSignUpLinkEmail(string link, string userEmal)

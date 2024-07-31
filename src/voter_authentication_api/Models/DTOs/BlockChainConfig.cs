@@ -3,12 +3,12 @@
     public class BlockChainConfig
     {
         public string Url { get; set; } = "http://127.0.0.1:8545";
-        public string ContractAddress { get; set; } = "0xa819B043eb55883bc444350BD6FcB46a8af3711e";
+        public string ContractAddress { get; set; } = "0x56011195cD138a102FAb877d3DcDA79a3b613F34";
         public decimal DefaultAmountFund { get; set; } = 10;
         public string[] FunderAddresses { get; set; } = new string[]
         {
-            "0x5322a18E39CD52a62d102e25556A8EF0655De44E",
-            "0x50d543E92F381a855B0560f818A59eB14d12fEfC"
+            "0x656Bd99b6ce14d70ed56e63dC5003DF44631F916",
+            "0x4b03C7bDbFaDDC2779d0f914624D7637789d83c0"
         };
         public string Password { get; set; } = "admin";
         public string ContractAbiPath { get; set; } = "C:\\Users\\leona\\Desktop\\Aristoteles\\aristoteles\\src\\blockchain\\src\\dapp\\build\\contracts_Voting_sol_Voting.abi";

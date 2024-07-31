@@ -58,6 +58,15 @@ namespace VoterAuthenticationAPI.Services
             return dbUser;
         }
 
+        public async Task<User?> BuscaUsuarioId(int id)
+        {
+            var dbUser = await _dataContext.Users
+                .Include(x => x.Wallet)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            return dbUser;
+        }
+
         public async Task CadastraUsuario(UserDTO userDTO)
         {
             var transaction = await _dataContext.Database.BeginTransactionAsync();

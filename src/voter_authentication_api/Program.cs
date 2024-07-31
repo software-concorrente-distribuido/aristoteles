@@ -1,4 +1,5 @@
 global using Microsoft.EntityFrameworkCore;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -14,12 +15,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CandidatoService>();
 builder.Services.AddScoped<ElectionService>();
 builder.Services.AddScoped<VoterService>();
 builder.Services.AddScoped<WalletService>();
 builder.Services.AddScoped<BlockChainConfig>();
+builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddCors(options =>
 {

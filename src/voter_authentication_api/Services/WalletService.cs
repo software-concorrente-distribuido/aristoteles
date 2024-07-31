@@ -13,6 +13,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using Nethereum.Web3.Accounts;
 using Nethereum.RPC.Eth;
 using VoterAuthenticationAPI.Models.DTOs;
+using Nethereum.Model;
 
 namespace VoterAuthenticationAPI.Common
 {
@@ -93,6 +94,7 @@ namespace VoterAuthenticationAPI.Common
                 {
                     var account = new ManagedAccount(address, _blockChainConfig.Password);
                     var web3WithAccount = new Web3(account, _blockChainConfig.Url);
+                    var balance1 = await _web3.Eth.GetBalance.SendRequestAsync(address);
 
                     var transactionInput = new Nethereum.RPC.Eth.DTOs.TransactionInput
                     {
@@ -102,7 +104,11 @@ namespace VoterAuthenticationAPI.Common
                         GasPrice = gasPrice,
                         From = address
                     };
+
+                    var transactionHash = await _web3.Eth.Transactions.SendTransaction.SendRequestAsync(transactionInput);
                 }
+
+                var balance = await _web3.Eth.GetBalance.SendRequestAsync(newWalletAddress);
 
                 return (newWalletAddress, newWalletPrivateKey);
             }
