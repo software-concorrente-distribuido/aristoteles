@@ -106,9 +106,8 @@ namespace VoterAuthenticationAPI.Common
                     };
 
                     var transactionHash = await _web3.Eth.Transactions.SendTransaction.SendRequestAsync(transactionInput);
+                    var balance = await _web3.Eth.GetBalance.SendRequestAsync(newWalletAddress);
                 }
-
-                var balance = await _web3.Eth.GetBalance.SendRequestAsync(newWalletAddress);
 
                 return (newWalletAddress, newWalletPrivateKey);
             }

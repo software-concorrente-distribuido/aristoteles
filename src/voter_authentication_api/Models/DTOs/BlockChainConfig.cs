@@ -3,7 +3,7 @@
     public class BlockChainConfig
     {
         public string Url { get; set; } = "http://127.0.0.1:8545";
-        public string ContractAddress { get; set; } = "0x56011195cD138a102FAb877d3DcDA79a3b613F34";
+        public string ContractAddress { get; set; } = "0xe3c2796d683553F97A1e8201301dc5f8cf8881A9";
         public decimal DefaultAmountFund { get; set; } = 10;
         public string[] FunderAddresses { get; set; } = new string[]
         {

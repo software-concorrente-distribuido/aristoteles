@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VoterAuthenticationAPI.Common;
 using VoterAuthenticationAPI.Models;
+using VoterAuthenticationAPI.Models.DTOs;
 using VoterAuthenticationAPI.Services;
 
 namespace VoterAuthenticationAPI.Controllers;
@@ -18,14 +19,12 @@ public class ElectionController : ControllerBase
         _electionService = electionService;
     }
 
-    [HttpPost("sign-in")]
-    public async Task<ActionResult> CreateElectionAsync(string nome, string descricao)
+    [HttpPost("CreateElection")]
+    public async Task<ActionResult<Election>> CreateElectionAsync([FromBody] CreateElectionDTO request)
     {
         try
         {
-            await _electionService.CreateElectionAsync(nome, descricao);
-
-            return Ok();
+            return await _electionService.CreateElectionAsync(request.Nome, request.Descricao, request.Voters, request.Candidates);
         }
         catch (Exception ex)
         {
