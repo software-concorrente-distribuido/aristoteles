@@ -7,6 +7,7 @@
 - Gabriel Castro
 - Murilo Freua
 - Vitor Ribeiro
+- Gabriel Mesquita
 
 ## Apresentações 
 - Pitch: https://www.canva.com/design/DAGCn75nUCg/Oyfy2GEXyfcjF6hAKNRJzA/edit
