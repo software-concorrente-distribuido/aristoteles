@@ -68,7 +68,7 @@ contract Voting {
     function getAdminElections(
         address _adminAddress
     ) public view returns (Election[] memory) {
-        uint count = 0;
+        uint count = 1;
         for (uint i = 0; i < electionsCount; i++) {
             if (elections[i].admin == _adminAddress) {
                 count++;
