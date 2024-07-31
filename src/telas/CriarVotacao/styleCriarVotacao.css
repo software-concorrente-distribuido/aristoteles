@@ -37,6 +37,7 @@ body {
         linear-gradient(-135deg, rgb(110, 191, 231) 6px, transparent 10px);
     background-size: 100px 100px;
     animation: blockchain 400s infinite linear;
+    overflow: hidden;
 }
 
 .menu-bar {
@@ -217,16 +218,7 @@ form {
     margin-bottom: 5px;
     color: var(--cor-texto-titulo);
     margin: 5px 0px;
-    border: 1px solid #102C57 ;
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 5px 0;
-    padding-left: 30px;
-    background-color: rgb(193, 234, 255);
-}
-
-.opcoes-list label:hover{
-    background-color: rgb(168, 217, 241);
+    border-bottom: 1px solid #102C57 ;
 }
 
 .opcoes-list input {
@@ -261,8 +253,8 @@ form {
 }
 
 .opcoes-list {
-    border: none;
-    background-color: white;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     max-height: 150px;
@@ -294,9 +286,7 @@ form {
     transform: translateY(-50%);
     height: 12px;
     width: 12px;
-    background-color: white;
-    border: 1px solid black;
-    margin-left: 5px;
+    background-color: #ccc;
     border-radius: 50%;
 }
 
@@ -334,6 +324,33 @@ form {
     100% { background-color: #2196F3; }
 }
 
+.email-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 100px;
+    min-height: 28px;
+    padding: 2px;
+    background-color: white;
+    border-radius: 4px;
+    gap: 10px;
+}
+
+.email-badge {
+    background-color: var(--cor-fundo-lista-emails);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.email-badge i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -343,12 +360,12 @@ form {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(18, 68, 194);
+    background-color: rgb(227, 97, 118);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(128, 57, 215);
+    background-color: rgb(225, 21, 55);
 }
 
 .popup {
@@ -390,5 +407,5 @@ form {
     right: 10px;
     cursor: pointer;
     font-size: 20px;
-    color: #333;
+    color: #333;
 }

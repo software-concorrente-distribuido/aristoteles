@@ -1,8 +1,41 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuIcon = document.querySelector('.menu i');
     const menuContent = document.querySelector('.menu-content');
+    const addButton = document.querySelector('.add-btn');
+    const emailInput = document.querySelector('#novo-participante');
     const emailContainer = document.querySelector('#email-container');
-    
+
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    const addEmailBadge = (email) => {
+        const badge = document.createElement('div');
+        badge.classList.add('email-badge');
+        badge.innerHTML = `
+            ${email} 
+            <i class="fas fa-times"></i>
+        `;
+
+        badge.querySelector('i').addEventListener('click', () => {
+            emailContainer.removeChild(badge);
+        });
+
+        emailContainer.appendChild(badge);
+    }
+
+    addButton.addEventListener('click', () => {
+        const email = emailInput.value.trim();
+        if (validateEmail(email)) {
+            addEmailBadge(email);
+            emailInput.value = '';
+        } else {
+            alert('Por favor, insira um e-mail válido.');
+        }
+    });
+
     menuIcon.addEventListener('click', function () {
         menuContent.classList.toggle('show');
         const isVisible = menuContent.classList.contains('show');
@@ -38,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': Bearer ${token}
+                'Authorization': `Bearer ${token}`
             }
         })
             .then(response => {
@@ -50,34 +83,17 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(candidatos => {
                 const opcoesList = document.getElementById('opcoes-list');
-                const emailsList = document.getElementById('email-container');
                 opcoesList.innerHTML = '';
-                emailsList.innerHTML = '';
-
-                candidatos.sort((a, b) => a.name.localeCompare(b.name));
-                
-                candidatos.forEach(candidato => {
-                    const label = document.createElement('label');
-                    label.classList.add('radio-container');
-                    label.innerHTML = `
-                    ${candidato.name} - ${candidato.email}
-                    <input type="checkbox" name="opcao" value="${candidato.id}">
-                    <span class="checkmark"></span>
-                    `;
-                    opcoesList.appendChild(label);
-                });
-                
-                candidatos.sort((a, b) => a.email.localeCompare(b.email));
 
                 candidatos.forEach(candidato => {
                     const label = document.createElement('label');
                     label.classList.add('radio-container');
                     label.innerHTML = `
-                ${candidato.email}
+                ${candidato.name} - ${candidato.email}
                 <input type="checkbox" name="opcao" value="${candidato.id}">
                 <span class="checkmark"></span>
             `;
-                    emailsList.appendChild(label);
+                    opcoesList.appendChild(label);
                 });
             })
             .catch(error => {
@@ -129,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': Bearer ${token}
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(jsonData.candidatos)
             })
@@ -221,6 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
         closeButton.addEventListener('click', () => {
             clearTimeout(timeout);
             popup.style.display = 'none';
-        });
-    }
+        });
+    }
 });
