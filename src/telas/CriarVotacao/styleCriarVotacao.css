@@ -224,6 +224,7 @@ form {
     font-weight: bold;
     padding: 5px 0;
     padding-left: 30px;
+    text-wrap: wrap;
     background-color: rgb(193, 234, 255);
 }
 
@@ -297,7 +298,7 @@ form {
     height: 12px;
     width: 12px;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid rgb(23, 102, 206);
     margin-left: 5px;
     border-radius: 50%;
 }

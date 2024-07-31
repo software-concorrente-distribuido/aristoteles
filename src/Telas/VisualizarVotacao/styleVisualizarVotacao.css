@@ -36,7 +36,6 @@
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
-    overflow: hidden;
 
     background-color: var(--cor-fundo-body);
     background-image: 
@@ -46,7 +45,6 @@ body {
     linear-gradient(-135deg, rgb(110, 191, 231) 6px, transparent 10px);
     background-size: 100px 100px;
     animation: blockchain 400s infinite linear;
-    overflow: hidden;
 }
 
 h2 {
@@ -76,11 +74,11 @@ h2 {
 .menu-content {
     display: none;
     position: absolute;
-    width: 150px;
+    width: 300px;
     top: 23px;
     left: 0;
     background-color: var(--cor-fundo-menu);
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     max-height: 0;
@@ -92,6 +90,7 @@ h2 {
 .menu-content a {
     display: block;
     padding: 5px;
+    border-bottom: 1px solid #125682 ;
     color: var(--cor-texto-menu);
     text-decoration: none;
 }

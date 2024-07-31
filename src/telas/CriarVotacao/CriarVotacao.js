@@ -58,6 +58,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 const emailList = document.getElementById('email-container');
                 opcoesList.innerHTML = '';
 
+                candidatos.sort((a, b) => a.email.localeCompare(b.email));
+
+                candidatos.forEach(candidato => {
+                    const label = document.createElement('label');
+                    label.classList.add('radio-container');
+                    label.innerHTML = `
+                ${candidato.email}
+                <input type="checkbox" name="opcao" value="${candidato.id}">
+                <span class="checkmark"></span>
+                `;
+                    emailList.appendChild(label);
+                });
+
+                candidatos.sort((a, b) => a.name.localeCompare(b.name));
+
                 candidatos.forEach(candidato => {
                     const label = document.createElement('label');
                     label.classList.add('radio-container');
@@ -69,16 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     opcoesList.appendChild(label);
                 });
 
-                candidatos.forEach(candidato => {
-                    const label = document.createElement('label');
-                    label.classList.add('radio-container');
-                    label.innerHTML = `
-                ${candidato.name} - ${candidato.email}
-                <input type="checkbox" name="opcao" value="${candidato.id}">
-                <span class="checkmark"></span>
-                `;
-                    emailList.appendChild(label);
-                });
             })
             .catch(error => {
                 console.error('Erro:', error.message);
