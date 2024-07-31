@@ -136,6 +136,8 @@ h2 {
     width: 30%;
     margin: auto;
     margin-top: 2%;
+    background-color: white;
+    box-shadow: 0 0 6px rgb(35, 154, 227);
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
@@ -169,18 +171,18 @@ h3, p {
 
 .opcoes {
     margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
+
 }
 
 .opcao {
+    display: grid;
+    grid-template-columns: 35% 60%;
+    margin-bottom: 15px;
+}
+
+.barra{
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 90%;
-    background-color: var(--cor-section-fundo);
-    border-radius: 5px;
 }
 
 .opcao span {
@@ -194,19 +196,11 @@ h3, p {
     margin-left: 10px;
 }
 
-.opcao-selecionada .grafico-barra {
-    background-color: var(--cor-grafico-barras-selecionada);
-}
-
-.botaoVoltar{
-    align-self: start;
-    margin: 2% 6%;
-}
-
 .btnVoltar{
     padding: 10px 15px;
     border: none;
     border-radius: 6px;
+    width: 100px;
     background-color: #125682;
     color: white;
     cursor: pointer;
@@ -215,4 +209,20 @@ h3, p {
 
 .btnVoltar:hover{
     background-color: #1679AB;
+}
+
+.botoes-superiores{
+    display: flex;
+    width: 80%;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.botaoStatus{
+    border: none;
+    padding: 10px 15px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 3px;
+    background-color: rgb(38, 134, 38);
+    color: white;
 }
